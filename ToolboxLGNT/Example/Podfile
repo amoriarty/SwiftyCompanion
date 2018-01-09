@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ToolboxLGNT_Example' do
+  pod 'ToolboxLGNT', :path => '../'
+
+  target 'ToolboxLGNT_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

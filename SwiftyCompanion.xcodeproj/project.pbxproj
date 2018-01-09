@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE041DB5F628B2F09D0A2227 /* Pods_SwiftyCompanion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B3E0A44CB00CB31C364D6B /* Pods_SwiftyCompanion.framework */; };
 		ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C72004FC0900FF987D /* AppDelegate.swift */; };
 		ECE630CA2004FC0900FF987D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C92004FC0900FF987D /* ViewController.swift */; };
 		ECE630CF2004FC0900FF987D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE630CE2004FC0900FF987D /* Assets.xcassets */; };
@@ -14,6 +15,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31B3E0A44CB00CB31C364D6B /* Pods_SwiftyCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyCompanion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		350543D1419EC668A8D35CD5 /* Pods-SwiftyCompanion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCompanion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion.debug.xcconfig"; sourceTree = "<group>"; };
+		9E6967190C8798F6A0B0EBEC /* Pods-SwiftyCompanion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCompanion.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion.release.xcconfig"; sourceTree = "<group>"; };
 		ECE630C42004FC0900FF987D /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE630C72004FC0900FF987D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECE630C92004FC0900FF987D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -27,17 +31,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE041DB5F628B2F09D0A2227 /* Pods_SwiftyCompanion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C038D8662C173E499B80C7C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				350543D1419EC668A8D35CD5 /* Pods-SwiftyCompanion.debug.xcconfig */,
+				9E6967190C8798F6A0B0EBEC /* Pods-SwiftyCompanion.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ECE630BB2004FC0900FF987D = {
 			isa = PBXGroup;
 			children = (
 				ECE630C62004FC0900FF987D /* SwiftyCompanion */,
 				ECE630C52004FC0900FF987D /* Products */,
+				C038D8662C173E499B80C7C5 /* Pods */,
+				F7F8BCF0077B24A150CA4F05 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,6 +77,14 @@
 			path = SwiftyCompanion;
 			sourceTree = "<group>";
 		};
+		F7F8BCF0077B24A150CA4F05 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31B3E0A44CB00CB31C364D6B /* Pods_SwiftyCompanion.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -68,9 +92,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECE630D62004FC0900FF987D /* Build configuration list for PBXNativeTarget "SwiftyCompanion" */;
 			buildPhases = (
+				9E5FBEE18E9BA295A941716E /* [CP] Check Pods Manifest.lock */,
 				ECE630C02004FC0900FF987D /* Sources */,
 				ECE630C12004FC0900FF987D /* Frameworks */,
 				ECE630C22004FC0900FF987D /* Resources */,
+				2460FA6139C34C79DA24A026 /* [CP] Embed Pods Frameworks */,
+				22FAB96CBAC0B31954B7D569 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,6 +153,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22FAB96CBAC0B31954B7D569 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2460FA6139C34C79DA24A026 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ToolboxLGNT/ToolboxLGNT.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ToolboxLGNT.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E5FBEE18E9BA295A941716E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SwiftyCompanion-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ECE630C02004FC0900FF987D /* Sources */ = {
@@ -260,6 +341,7 @@
 		};
 		ECE630D72004FC0900FF987D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 350543D1419EC668A8D35CD5 /* Pods-SwiftyCompanion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -275,6 +357,7 @@
 		};
 		ECE630D82004FC0900FF987D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E6967190C8798F6A0B0EBEC /* Pods-SwiftyCompanion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
