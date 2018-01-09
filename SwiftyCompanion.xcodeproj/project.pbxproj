@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C72004FC0900FF987D /* AppDelegate.swift */; };
 		ECE630CA2004FC0900FF987D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C92004FC0900FF987D /* ViewController.swift */; };
-		ECE630CD2004FC0900FF987D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECE630CB2004FC0900FF987D /* Main.storyboard */; };
 		ECE630CF2004FC0900FF987D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE630CE2004FC0900FF987D /* Assets.xcassets */; };
 		ECE630D22004FC0900FF987D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECE630D02004FC0900FF987D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,7 +17,6 @@
 		ECE630C42004FC0900FF987D /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE630C72004FC0900FF987D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECE630C92004FC0900FF987D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		ECE630CC2004FC0900FF987D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECE630CE2004FC0900FF987D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECE630D12004FC0900FF987D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECE630D32004FC0900FF987D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 			children = (
 				ECE630C72004FC0900FF987D /* AppDelegate.swift */,
 				ECE630C92004FC0900FF987D /* ViewController.swift */,
-				ECE630CB2004FC0900FF987D /* Main.storyboard */,
 				ECE630CE2004FC0900FF987D /* Assets.xcassets */,
 				ECE630D02004FC0900FF987D /* LaunchScreen.storyboard */,
 				ECE630D32004FC0900FF987D /* Info.plist */,
@@ -125,7 +122,6 @@
 			files = (
 				ECE630D22004FC0900FF987D /* LaunchScreen.storyboard in Resources */,
 				ECE630CF2004FC0900FF987D /* Assets.xcassets in Resources */,
-				ECE630CD2004FC0900FF987D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,14 +140,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		ECE630CB2004FC0900FF987D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ECE630CC2004FC0900FF987D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		ECE630D02004FC0900FF987D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
