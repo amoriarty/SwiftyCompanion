@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		AE041DB5F628B2F09D0A2227 /* Pods_SwiftyCompanion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B3E0A44CB00CB31C364D6B /* Pods_SwiftyCompanion.framework */; };
 		ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C72004FC0900FF987D /* AppDelegate.swift */; };
-		ECE630CA2004FC0900FF987D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C92004FC0900FF987D /* ViewController.swift */; };
+		ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C92004FC0900FF987D /* SearchController.swift */; };
 		ECE630CF2004FC0900FF987D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE630CE2004FC0900FF987D /* Assets.xcassets */; };
 		ECE630D22004FC0900FF987D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECE630D02004FC0900FF987D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,7 +20,7 @@
 		9E6967190C8798F6A0B0EBEC /* Pods-SwiftyCompanion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCompanion.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion.release.xcconfig"; sourceTree = "<group>"; };
 		ECE630C42004FC0900FF987D /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE630C72004FC0900FF987D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ECE630C92004FC0900FF987D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECE630C92004FC0900FF987D /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		ECE630CE2004FC0900FF987D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECE630D12004FC0900FF987D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECE630D32004FC0900FF987D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,12 +69,20 @@
 			isa = PBXGroup;
 			children = (
 				ECE630C72004FC0900FF987D /* AppDelegate.swift */,
-				ECE630C92004FC0900FF987D /* ViewController.swift */,
+				ECE630D92005015400FF987D /* Controllers */,
 				ECE630CE2004FC0900FF987D /* Assets.xcassets */,
 				ECE630D02004FC0900FF987D /* LaunchScreen.storyboard */,
 				ECE630D32004FC0900FF987D /* Info.plist */,
 			);
 			path = SwiftyCompanion;
+			sourceTree = "<group>";
+		};
+		ECE630D92005015400FF987D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECE630C92004FC0900FF987D /* SearchController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F7F8BCF0077B24A150CA4F05 /* Frameworks */ = {
@@ -213,7 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE630CA2004FC0900FF987D /* ViewController.swift in Sources */,
+				ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */,
 				ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
