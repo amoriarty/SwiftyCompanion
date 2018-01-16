@@ -33,6 +33,8 @@
 		EC4692F3200E188E00D6EFF6 /* FuturaPTLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC4692DD200E188D00D6EFF6 /* FuturaPTLight.otf */; };
 		EC4692F4200E188E00D6EFF6 /* FuturaPTDemi.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC4692DE200E188E00D6EFF6 /* FuturaPTDemi.otf */; };
 		EC4692F5200E188E00D6EFF6 /* FuturaPTBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EC4692DF200E188E00D6EFF6 /* FuturaPTBold.otf */; };
+		EC4692F7200E418A00D6EFF6 /* InputStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692F6200E418A00D6EFF6 /* InputStackView.swift */; };
+		EC4692F9200E55D100D6EFF6 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692F8200E55D100D6EFF6 /* TextField.swift */; };
 		ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C72004FC0900FF987D /* AppDelegate.swift */; };
 		ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C92004FC0900FF987D /* SearchController.swift */; };
 		ECE630CF2004FC0900FF987D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE630CE2004FC0900FF987D /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		EC4692DD200E188D00D6EFF6 /* FuturaPTLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaPTLight.otf; sourceTree = "<group>"; };
 		EC4692DE200E188E00D6EFF6 /* FuturaPTDemi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaPTDemi.otf; sourceTree = "<group>"; };
 		EC4692DF200E188E00D6EFF6 /* FuturaPTBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaPTBold.otf; sourceTree = "<group>"; };
+		EC4692F6200E418A00D6EFF6 /* InputStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStackView.swift; sourceTree = "<group>"; };
+		EC4692F8200E55D100D6EFF6 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		ECE630C42004FC0900FF987D /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE630C72004FC0900FF987D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECE630C92004FC0900FF987D /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				EC4692C1200E0D7F00D6EFF6 /* SearchView.swift */,
+				EC4692F6200E418A00D6EFF6 /* InputStackView.swift */,
+				EC4692F8200E55D100D6EFF6 /* TextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,6 +350,8 @@
 			files = (
 				ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */,
 				EC4692C5200E120500D6EFF6 /* UIColor.swift in Sources */,
+				EC4692F7200E418A00D6EFF6 /* InputStackView.swift in Sources */,
+				EC4692F9200E55D100D6EFF6 /* TextField.swift in Sources */,
 				EC4692C2200E0D7F00D6EFF6 /* SearchView.swift in Sources */,
 				EC4692C8200E180500D6EFF6 /* UIFont.swift in Sources */,
 				ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */,

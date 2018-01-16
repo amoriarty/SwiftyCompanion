@@ -46,11 +46,13 @@ class SearchController: UIViewController {
         _ = logo.center(.horizontaly, view)
         _ = logo.center(.verticaly, view, multiplier: 0.5)
         
-        _ = searchView.fill(.horizontaly, view, constant: 15)
-        _ = searchView.constraint(.top, to: logo, .bottom, constant: 20)
         
-        // DEBUG RULES
-        _ = searchView.constraint(dimension: .height, constant: 200)
+        var width = view.frame.width < view.frame.height ? view.frame.width : view.frame.height
+        width = width > 500 ? 500 : width
+        
+        _ = searchView.center(view.safeAreaLayoutGuide)
+        _ = searchView.constraint(dimension: .width, constant: width - 20)
+        _ = searchView.constraint(.height, to: searchView, .width, multiplier: 10 / 16)
     }
 }
 

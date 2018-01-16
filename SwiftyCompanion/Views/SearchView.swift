@@ -9,14 +9,21 @@
 import UIKit
 
 class SearchView: UIView {
+    private let inputStack = InputStackView()
+    
     private let label: UILabel = {
         let label = UILabel()
         label.text = "Search"
         label.textAlignment = .center
         label.textColor = .swiftyGray
         label.font = UIFont.futuraBook(ofSize: 34).sizeAdaptedFont
-        label.backgroundColor = .purple
         return label
+    }()
+    
+    private let gradientBar: UIView = {
+        let view = UIView()
+        view.backgroundColor = .blue
+        return view
     }()
     
     override init(frame: CGRect) {
@@ -25,13 +32,27 @@ class SearchView: UIView {
         layer.cornerRadius = 5
         clipsToBounds = true
         
+        setupViews()
+        setupLayouts()
+    }
+    
+    private func setupViews() {
         addSubview(label)
+        addSubview(gradientBar)
+        addSubview(inputStack)
+    }
+    
+    private func setupLayouts() {
+        _ = label.center(.horizontaly, self)
+        _ = label.constraint(.top, to: self, constant: 10)
+
+        _ = gradientBar.fill(.horizontaly, self)
+        _ = gradientBar.constraint(dimension: .height, constant: 7)
+        _ = gradientBar.constraint(.top, to: label, .bottom, constant: 10)
         
-        _ = label.fill(.horizontaly, self)
-        _ = label.constraint(.top, to: self)
-        
-        // DEBUG RULES
-        _ = label.constraint(dimension: .height, constant: 100)
+        _ = inputStack.fill(.horizontaly, self)
+        _ = inputStack.constraint(.top, to: gradientBar, .bottom, constant: 10)
+        _ = inputStack.constraint(.bottom, to: self, constant: 10)
     }
     
     required init?(coder aDecoder: NSCoder) {
