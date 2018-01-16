@@ -11,15 +11,16 @@ import ToolboxLGNT
 
 class SearchController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    private let searchView = SearchView()
     
-    let background: UIImageView = {
+    private let background: UIImageView = {
         let image = UIImage(named: "LoginBackground")
         let view = UIImageView(image: image)
         view.contentMode = .scaleAspectFill
         return view
     }()
     
-    let logo: UIImageView = {
+    private let logo: UIImageView = {
         let image = UIImage(named: "LogoWhite")
         let view = UIImageView(image: image)
         view.contentMode = .scaleAspectFit
@@ -28,14 +29,28 @@ class SearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViews()
+        setupLayouts()
+    }
+    
+    private func setupViews() {
         view.addSubview(background)
         view.addSubview(logo)
-        
+        view.addSubview(searchView)
+    }
+    
+    private func setupLayouts() {
         _ = background.fill(view)
         _ = logo.constraint(dimension: .width, constant: 125)
         _ = logo.constraint(.height, to: logo, .width)
         _ = logo.center(.horizontaly, view)
         _ = logo.center(.verticaly, view, multiplier: 0.5)
+        
+        _ = searchView.fill(.horizontaly, view, constant: 15)
+        _ = searchView.constraint(.top, to: logo, .bottom, constant: 20)
+        
+        // DEBUG RULES
+        _ = searchView.constraint(dimension: .height, constant: 200)
     }
 }
 

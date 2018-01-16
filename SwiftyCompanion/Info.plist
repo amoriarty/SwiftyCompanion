@@ -34,6 +34,15 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>UIAppFonts</key>
+    <array>
+        <string>FuturaPTBold.otf</string>
+        <string>FuturaPTBoldOblique.otf</string>
+        <string>FuturaPTBook.otf</string>
+        <string>FuturaPTBookOblique.otf</string>
+        <string>FuturaPTLight.otf</string>
+        <string>FuturaPTLightOblique.otf</string>
+    </array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
