@@ -22,7 +22,7 @@ class SearchView: UIView {
     
     private let gradientBar: UIView = {
         let view = UIView()
-        view.backgroundColor = .blue
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -53,6 +53,15 @@ class SearchView: UIView {
         _ = inputStack.fill(.horizontaly, self)
         _ = inputStack.constraint(.top, to: gradientBar, .bottom, constant: 10)
         _ = inputStack.constraint(.bottom, to: self, constant: 10)
+    }
+    
+    func setupGradientLayer() {
+        let layer = CAGradientLayer()
+        layer.frame = gradientBar.bounds
+        layer.startPoint = CGPoint(x: 0, y: 0.5)
+        layer.endPoint = CGPoint(x: 1, y: 0.5)
+        layer.colors = [UIColor.swiftyLightBlue.cgColor, UIColor.swiftyGreen.cgColor]
+        gradientBar.layer.addSublayer(layer)
     }
     
     required init?(coder aDecoder: NSCoder) {

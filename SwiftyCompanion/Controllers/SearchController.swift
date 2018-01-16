@@ -33,6 +33,11 @@ class SearchController: UIViewController {
         setupLayouts()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchView.setupGradientLayer()
+    }
+    
     private func setupViews() {
         view.addSubview(background)
         view.addSubview(logo)

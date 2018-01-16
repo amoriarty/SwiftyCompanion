@@ -27,9 +27,7 @@ class InputStackView: UIView {
         text.layer.borderColor = UIColor.swiftyLightBlue.cgColor
         text.font = UIFont.futuraBook(ofSize: 30).sizeAdaptedFont
         text.textColor = .swiftyGray
-        text.attributedPlaceholder = NSAttributedString(string: "login", attributes: [
-            .foregroundColor: UIColor.swiftyDarkGray
-        ])
+        text.attributedPlaceholder = NSAttributedString(string: "login", attributes: [.foregroundColor: UIColor.swiftyDarkGray])
         text.returnKeyType = .search
         text.autocorrectionType = .no
         text.autocapitalizationType = .none
