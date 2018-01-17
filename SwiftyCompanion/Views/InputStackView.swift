@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol InputStackDelegate: class {
+    func handleSearch()
+}
+
 class InputStackView: UIView {
     private let textView = UIView()
     private let buttonView =  UIView()
+    weak var delegate: InputStackDelegate?
     
     private let stackView: UIStackView = {
         let stack = UIStackView()
@@ -39,6 +44,7 @@ class InputStackView: UIView {
         button.backgroundColor = .swiftyLightBlue
         button.setTitle("Search", for: .normal)
         button.titleLabel?.font = UIFont.futuraBook(ofSize: 28.8).sizeAdaptedFont
+        button.addTarget(self, action: #selector(handleSearch), for: .touchUpInside)
         return button
     }()
     
@@ -62,6 +68,10 @@ class InputStackView: UIView {
         _ = inputText.center(.verticaly, textView)
         _ = searchButton.fill(.horizontaly, buttonView, constant: 75)
         _ = searchButton.center(.verticaly, buttonView)
+    }
+    
+    @objc func handleSearch() {
+        delegate?.handleSearch()
     }
     
     required init?(coder aDecoder: NSCoder) {

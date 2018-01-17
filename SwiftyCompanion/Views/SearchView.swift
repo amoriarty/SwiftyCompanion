@@ -10,6 +10,9 @@ import UIKit
 
 class SearchView: UIView {
     private let inputStack = InputStackView()
+    weak var delegate: InputStackDelegate? {
+        didSet { inputStack.delegate = delegate }
+    }
     
     private let label: UILabel = {
         let label = UILabel()

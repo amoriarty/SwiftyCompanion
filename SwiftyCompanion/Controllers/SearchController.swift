@@ -9,9 +9,10 @@
 import UIKit
 import ToolboxLGNT
 
-class SearchController: UIViewController {
+class SearchController: UIViewController, InputStackDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     private let searchView = SearchView()
+    private let profileController = ProfileController()
     
     private let background: UIImageView = {
         let image = UIImage(named: "LoginBackground")
@@ -29,8 +30,15 @@ class SearchController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Search"
         setupViews()
         setupLayouts()
+        searchView.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,6 +75,10 @@ class SearchController: UIViewController {
         _ = searchView.center(view.safeAreaLayoutGuide)
         _ = searchView.constraint(dimension: .width, constant: width - 20)
         _ = searchView.constraint(.height, to: searchView, .width, multiplier: 10 / 16)
+    }
+    
+    func handleSearch() {
+        navigationController?.pushViewController(profileController, animated: true)
     }
 }
 
