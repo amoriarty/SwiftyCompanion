@@ -8,6 +8,10 @@
 
 import UIKit
 
+// DEBUG
+import ToolboxLGNT
+// END DEBUG
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?

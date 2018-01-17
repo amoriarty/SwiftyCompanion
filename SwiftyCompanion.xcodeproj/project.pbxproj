@@ -36,6 +36,10 @@
 		EC4692F7200E418A00D6EFF6 /* InputStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692F6200E418A00D6EFF6 /* InputStackView.swift */; };
 		EC4692F9200E55D100D6EFF6 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692F8200E55D100D6EFF6 /* TextField.swift */; };
 		EC4692FD200F474300D6EFF6 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692FC200F474300D6EFF6 /* ProfileController.swift */; };
+		EC469300200F542000D6EFF6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692FF200F542000D6EFF6 /* User.swift */; };
+		EC469302200F5E5A00D6EFF6 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC469301200F5E5A00D6EFF6 /* Campus.swift */; };
+		EC469304200F5FFB00D6EFF6 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC469303200F5FFB00D6EFF6 /* Title.swift */; };
+		EC469306200F60E300D6EFF6 /* Cursus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC469305200F60E300D6EFF6 /* Cursus.swift */; };
 		ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C72004FC0900FF987D /* AppDelegate.swift */; };
 		ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C92004FC0900FF987D /* SearchController.swift */; };
 		ECE630CF2004FC0900FF987D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE630CE2004FC0900FF987D /* Assets.xcassets */; };
@@ -74,6 +78,10 @@
 		EC4692F6200E418A00D6EFF6 /* InputStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputStackView.swift; sourceTree = "<group>"; };
 		EC4692F8200E55D100D6EFF6 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		EC4692FC200F474300D6EFF6 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		EC4692FF200F542000D6EFF6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EC469301200F5E5A00D6EFF6 /* Campus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campus.swift; sourceTree = "<group>"; };
+		EC469303200F5FFB00D6EFF6 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		EC469305200F60E300D6EFF6 /* Cursus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursus.swift; sourceTree = "<group>"; };
 		ECE630C42004FC0900FF987D /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE630C72004FC0900FF987D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECE630C92004FC0900FF987D /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -152,6 +160,17 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		EC4692FE200F53C100D6EFF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC4692FF200F542000D6EFF6 /* User.swift */,
+				EC469301200F5E5A00D6EFF6 /* Campus.swift */,
+				EC469303200F5FFB00D6EFF6 /* Title.swift */,
+				EC469305200F60E300D6EFF6 /* Cursus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		ECE630BB2004FC0900FF987D = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +195,7 @@
 				ECE630C72004FC0900FF987D /* AppDelegate.swift */,
 				ECE630D92005015400FF987D /* Controllers */,
 				EC4692C0200E0D5C00D6EFF6 /* Views */,
+				EC4692FE200F53C100D6EFF6 /* Models */,
 				EC4692C3200E11E300D6EFF6 /* Toolbox */,
 				ECE630CE2004FC0900FF987D /* Assets.xcassets */,
 				ECE630D02004FC0900FF987D /* LaunchScreen.storyboard */,
@@ -351,10 +371,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC469306200F60E300D6EFF6 /* Cursus.swift in Sources */,
 				ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */,
 				EC4692C5200E120500D6EFF6 /* UIColor.swift in Sources */,
+				EC469304200F5FFB00D6EFF6 /* Title.swift in Sources */,
 				EC4692F7200E418A00D6EFF6 /* InputStackView.swift in Sources */,
 				EC4692F9200E55D100D6EFF6 /* TextField.swift in Sources */,
+				EC469302200F5E5A00D6EFF6 /* Campus.swift in Sources */,
+				EC469300200F542000D6EFF6 /* User.swift in Sources */,
 				EC4692C2200E0D7F00D6EFF6 /* SearchView.swift in Sources */,
 				EC4692C8200E180500D6EFF6 /* UIFont.swift in Sources */,
 				ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */,

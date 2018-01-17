@@ -25,6 +25,6 @@ public class DataService {
                 return
             }
             DispatchQueue.main.async { completion(result) }
-            }.resume()
+        }.resume()
     }
 }
