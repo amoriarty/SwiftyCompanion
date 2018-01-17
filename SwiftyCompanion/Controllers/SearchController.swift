@@ -13,6 +13,7 @@ class SearchController: UIViewController, InputStackDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     private let searchView = SearchView()
     private let profileController = ProfileController()
+    private var lock = false
     
     private let background: UIImageView = {
         let image = UIImage(named: "LoginBackground")
@@ -34,6 +35,7 @@ class SearchController: UIViewController, InputStackDelegate {
         setupViews()
         setupLayouts()
         searchView.delegate = self
+        APIService.shared.getToken()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,8 +79,17 @@ class SearchController: UIViewController, InputStackDelegate {
         _ = searchView.constraint(.height, to: searchView, .width, multiplier: 10 / 16)
     }
     
-    func handleSearch() {
-        navigationController?.pushViewController(profileController, animated: true)
+    func handleSearch(_ login: String) {
+        guard lock == false else { return }
+        lock = true
+        
+        APIService.shared.getUser(login) { user in
+            self.lock = false
+            
+            guard let user = user else { return }
+            self.profileController.user = user
+            self.navigationController?.pushViewController(self.profileController, animated: true)
+        }
     }
 }
 

@@ -9,10 +9,10 @@
 import UIKit
 
 protocol InputStackDelegate: class {
-    func handleSearch()
+    func handleSearch(_ login: String)
 }
 
-class InputStackView: UIView {
+class InputStackView: UIView, UITextFieldDelegate {
     private let textView = UIView()
     private let buttonView =  UIView()
     weak var delegate: InputStackDelegate?
@@ -24,7 +24,7 @@ class InputStackView: UIView {
         return stack
     }()
     
-    private let inputText: TextField = {
+    private lazy var inputText: TextField = {
         let text = TextField()
         text.backgroundColor = .swiftyPureBlack
         text.layer.cornerRadius = 5
@@ -36,6 +36,7 @@ class InputStackView: UIView {
         text.returnKeyType = .search
         text.autocorrectionType = .no
         text.autocapitalizationType = .none
+        text.delegate = self
         return text
     }()
     
@@ -71,7 +72,14 @@ class InputStackView: UIView {
     }
     
     @objc func handleSearch() {
-        delegate?.handleSearch()
+        guard let login = inputText.text, login.count > 0 else { return }
+        delegate?.handleSearch(login)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        handleSearch()
+        return true
     }
     
     required init?(coder aDecoder: NSCoder) {

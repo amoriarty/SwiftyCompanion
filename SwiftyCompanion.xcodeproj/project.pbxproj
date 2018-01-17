@@ -40,6 +40,9 @@
 		EC469302200F5E5A00D6EFF6 /* Campus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC469301200F5E5A00D6EFF6 /* Campus.swift */; };
 		EC469304200F5FFB00D6EFF6 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC469303200F5FFB00D6EFF6 /* Title.swift */; };
 		EC469306200F60E300D6EFF6 /* Cursus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC469305200F60E300D6EFF6 /* Cursus.swift */; };
+		EC469308200F79C900D6EFF6 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC469307200F79C900D6EFF6 /* Configurations.swift */; };
+		EC46930B200F7A4400D6EFF6 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC46930A200F7A4400D6EFF6 /* APIService.swift */; };
+		EC46930D200F7E6D00D6EFF6 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC46930C200F7E6D00D6EFF6 /* Auth.swift */; };
 		ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C72004FC0900FF987D /* AppDelegate.swift */; };
 		ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C92004FC0900FF987D /* SearchController.swift */; };
 		ECE630CF2004FC0900FF987D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE630CE2004FC0900FF987D /* Assets.xcassets */; };
@@ -82,6 +85,9 @@
 		EC469301200F5E5A00D6EFF6 /* Campus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campus.swift; sourceTree = "<group>"; };
 		EC469303200F5FFB00D6EFF6 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
 		EC469305200F60E300D6EFF6 /* Cursus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursus.swift; sourceTree = "<group>"; };
+		EC469307200F79C900D6EFF6 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		EC46930A200F7A4400D6EFF6 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		EC46930C200F7E6D00D6EFF6 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		ECE630C42004FC0900FF987D /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE630C72004FC0900FF987D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECE630C92004FC0900FF987D /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -167,8 +173,17 @@
 				EC469301200F5E5A00D6EFF6 /* Campus.swift */,
 				EC469303200F5FFB00D6EFF6 /* Title.swift */,
 				EC469305200F60E300D6EFF6 /* Cursus.swift */,
+				EC46930C200F7E6D00D6EFF6 /* Auth.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EC469309200F7A2D00D6EFF6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				EC46930A200F7A4400D6EFF6 /* APIService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		ECE630BB2004FC0900FF987D = {
@@ -193,9 +208,11 @@
 			isa = PBXGroup;
 			children = (
 				ECE630C72004FC0900FF987D /* AppDelegate.swift */,
+				EC469307200F79C900D6EFF6 /* Configurations.swift */,
 				ECE630D92005015400FF987D /* Controllers */,
 				EC4692C0200E0D5C00D6EFF6 /* Views */,
 				EC4692FE200F53C100D6EFF6 /* Models */,
+				EC469309200F7A2D00D6EFF6 /* Services */,
 				EC4692C3200E11E300D6EFF6 /* Toolbox */,
 				ECE630CE2004FC0900FF987D /* Assets.xcassets */,
 				ECE630D02004FC0900FF987D /* LaunchScreen.storyboard */,
@@ -376,9 +393,12 @@
 				EC4692C5200E120500D6EFF6 /* UIColor.swift in Sources */,
 				EC469304200F5FFB00D6EFF6 /* Title.swift in Sources */,
 				EC4692F7200E418A00D6EFF6 /* InputStackView.swift in Sources */,
+				EC46930D200F7E6D00D6EFF6 /* Auth.swift in Sources */,
 				EC4692F9200E55D100D6EFF6 /* TextField.swift in Sources */,
 				EC469302200F5E5A00D6EFF6 /* Campus.swift in Sources */,
 				EC469300200F542000D6EFF6 /* User.swift in Sources */,
+				EC46930B200F7A4400D6EFF6 /* APIService.swift in Sources */,
+				EC469308200F79C900D6EFF6 /* Configurations.swift in Sources */,
 				EC4692C2200E0D7F00D6EFF6 /* SearchView.swift in Sources */,
 				EC4692C8200E180500D6EFF6 /* UIFont.swift in Sources */,
 				ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */,

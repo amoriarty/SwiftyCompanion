@@ -12,7 +12,7 @@ struct User: Decodable {
     let id: Int
     let login: String
     let email: String
-    let phone: String
+    let phone: String?
     let displayName: String
     let location: String?
     let wallet: Int
