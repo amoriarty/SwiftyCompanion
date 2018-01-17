@@ -36,10 +36,6 @@ class SearchController: UIViewController, InputStackDelegate {
         setupLayouts()
         searchView.delegate = self
         APIService.shared.getToken()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
