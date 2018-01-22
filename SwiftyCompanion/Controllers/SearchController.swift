@@ -31,11 +31,16 @@ class SearchController: UIViewController, InputStackDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Search"
+        title = ""
         setupViews()
         setupLayouts()
         searchView.delegate = self
         APIService.shared.getToken()
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
