@@ -10,59 +10,46 @@ import UIKit
 
 class ProfileController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    private let navigationView = ProfileNavigationView()
     var user: User? {
-        didSet { }
+        didSet { navigationView.user = user }
     }
     
-    private lazy var navigationView: ProfileNavigationView = {
-        guard let frame = navigationController?.navigationBar.frame else  { return ProfileNavigationView() }
-        let size = CGSize(width: frame.width / 1.5, height: frame.height)
-        let origin = CGPoint(x: (size.width / 2) * -1, y: 0)
-        let view = ProfileNavigationView(frame: CGRect(origin: origin, size: size))
-        view.controller = self
+    private let background: UIImageView = {
+        let image = UIImage(named: "LoginBackground")
+        let view = UIImageView(image: image)
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         return view
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationView.controller = self
         setupViews()
         setupLayouts()
-        setupNavBar()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func setupViews() {
+        view.addSubview(background)
+        view.addSubview(navigationView)
     }
     
     private func setupLayouts() {
+        guard let navBarHeight = navigationController?.navigationBar.frame.height else { return }
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        
+        _ = background.fill(.horizontaly, view)
+        _ = background.constraint(.top, to: view)
+        _ = background.constraint(dimension: .height, constant: statusBarHeight + navBarHeight)
+        
+        _ = navigationView.fill(.horizontaly, view)
+        _ = navigationView.constraint(.bottom, to: background)
+        _ = navigationView.constraint(dimension: .height, constant: navBarHeight)
     }
     
-    private func setupNavBar() {
-//        navigationItem.hidesBackButton = true
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.setBackgroundImage(UIImage(named: "LoginBackground"), for: .default)
-        
-        guard let frame = navigationController?.navigationBar.frame else { return }
-        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: frame.height))
-        titleView.isUserInteractionEnabled = true
-        titleView.addSubview(navigationView)
-        navigationItem.titleView = titleView
-        
-//        let button = UIButton(type: .custom)
-//        button.setImage(#imageLiteral(resourceName: "LogoWhite"), for: .normal)
-//        button.frame = CGRect(x: (frame.width / 2) * -1, y: 0, width: 50, height: frame.height)
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
-    }
-    
-    @objc func handleBack() {
-        print("handleBack")
+    func handleBack() {
         navigationController?.popViewController(animated: true)
     }
 }

@@ -10,30 +10,82 @@ import UIKit
 import ToolboxLGNT
 
 class ProfileNavigationView: UIView {
-    weak var controller: ProfileController?
+    var controller: ProfileController?
+    var user: User? {
+        didSet {
+            guard let user = user else { return }
+            let attributed = NSMutableAttributedString(string: user.displayName, attributes: [
+                .foregroundColor: UIColor.white,
+                .font: UIFont.futuraBook(ofSize: 14)
+            ])
+            let attributedLogin = NSAttributedString(string: "\n\(user.login)", attributes: [
+                .foregroundColor: UIColor.white,
+                .font: UIFont.futuraBook(ofSize: 12)
+            ])
+            
+            attributed.append(attributedLogin)
+            profileText.attributedText = attributed
+            profileImage.image = nil
+            ImageService.shared.getImage(at: user.imageUrl) { image in
+                self.profileImage.image = image
+            }
+        }
+    }
     
-//    private lazy var backButton: UIButton = {
-//        let image = UIImage(named: "LogoWhite")
-//        let button = UIButton(type: .custom)
-//        button.setImage(image, for: .normal)
-//        button.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
-//        return button
-//    }()
+    private let backButton: UIButton = {
+        let button = UIButton(type: .system)
+        let image = UIImage(named: "LogoWhite")?.withRenderingMode(.alwaysOriginal)
+        button.setImage(image, for: .normal)
+        button.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
+        return button
+    }()
+    
+    private let profileImage: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.layer.cornerRadius = 34 / 2
+        view.backgroundColor = .black
+        view.clipsToBounds = true
+        return view
+    }()
+    
+    private let profileText: UILabel = {
+        let label = UILabel()
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 2
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .red
-        
-//        addSubview(backButton)
-//        _ = backButton.fill(.verticaly, self)
-//        _ = backButton.constraint(.leading, to: self, constant: 10)
-//        _ = backButton.constraint(dimension: .width, constant: 40)
+        backgroundColor = .clear
+        setupViews()
+        setupLayouts()
     }
     
-//    @objc func handleBack() {
-//        print("handle back")
-//        controller?.navigationController?.popViewController(animated: true)
-//    }
+    private func setupViews() {
+        addSubview(backButton)
+        addSubview(profileImage)
+        addSubview(profileText)
+    }
+    
+    private func setupLayouts() {
+        _ = backButton.fill(.verticaly, self, constant: 5)
+        _ = backButton.constraint(.leading, to: self, constant: 10)
+        _ = backButton.constraint(dimension: .width, constant: 34)
+        
+        
+        _ = profileText.center(self)
+        
+        _ = profileImage.center(.verticaly, self)
+        _ = profileImage.constraint(.trailing, to: profileText, .leading, constant: 5)
+        _ = profileImage.constraint(dimension: .width, constant: 34)
+        _ = profileImage.constraint(.height, to: profileImage, .width)
+    }
+    
+    @objc func handleBack() {
+        controller?.handleBack()
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
