@@ -9,12 +9,9 @@
 import UIKit
 import ToolboxLGNT
 
-class ProfileController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ProfileController: DatasourceController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     private let navigationView = ProfileNavigationView()
-    private let previewHeight: CGFloat = 200
-    private let reuseId = "reuseid"
-    private let headerId = "headerid"
     var user: User? {
         didSet { navigationView.user = user }
     }
@@ -27,87 +24,58 @@ class ProfileController: UIViewController, UICollectionViewDelegate, UICollectio
         return view
     }()
     
-    private let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.backgroundColor = .clear
-        return view
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationView.controller = self
         setupViews()
         setupLayouts()
-        setupCollectionView()
     }
     
     private func setupViews() {
         view.addSubview(background)
         view.addSubview(navigationView)
-        view.addSubview(collectionView)
     }
     
     private func setupLayouts() {
-        guard let navBarHeight = navigationController?.navigationBar.frame.height else { return }
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
+        guard let navbarHeight = navigationController?.navigationBar.frame.height else { return }
 
         _ = background.fill(.horizontaly, view)
         _ = background.constraint(.top, to: view)
-        _ = background.constraint(dimension: .height, constant: statusBarHeight + navBarHeight)
+        _ = background.constraint(.bottom, to: navigationView)
         
         _ = navigationView.fill(.horizontaly, view)
         _ = navigationView.constraint(.top, to: view.safeAreaLayoutGuide)
-        _ = navigationView.constraint(dimension: .height, constant: navBarHeight)
-        
-        _ = collectionView.fill(.horizontaly, view.safeAreaLayoutGuide)
-        _ = collectionView.constraint(.top, to: navigationView, .bottom)
-        _ = collectionView.constraint(.bottom, to: view.safeAreaLayoutGuide)
+        _ = navigationView.constraint(dimension: .height, constant: navbarHeight)
     }
     
-    private func setupCollectionView() {
+    override func setup(collectionView: UICollectionView) {
+        super.setup(collectionView: collectionView)
+        
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        layout.sectionHeadersPinToVisibleBounds = true
+        guard let navbarHeight = navigationController?.navigationBar.frame.height else { return }
+        let inset = UIEdgeInsets(top: navbarHeight, left: 0, bottom: 0, right: 0)
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseId)
-        collectionView.register(PreviewView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath)
-        cell.backgroundColor = .blue
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionElementKindSectionHeader else { return UICollectionReusableView() }
-        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        guard collectionView.contentOffset.y > 0 else {
-            return CGSize(width: collectionView.frame.height, height: 44)
-        }
-        return CGSize(width: collectionView.frame.width, height: previewHeight)
-        
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+        layout.scrollDirection = .horizontal
+        collectionView.backgroundColor = .clear
+        collectionView.contentInset = inset
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     func handleBack() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    // Datasource controller
+    override var types: [DatasourceCell.Type] {
+        return [ProfileCell.self]
+    }
+    
+    override func numberOfItems(in section: Int) -> Int {
+        return 3
+    }
+    
+    override func sizeForItem(at indexPath: IndexPath) -> CGSize {
+        return collectionView?.frame.size ?? .zero
     }
 }
