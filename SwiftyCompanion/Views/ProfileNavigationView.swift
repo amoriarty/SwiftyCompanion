@@ -14,11 +14,20 @@ class ProfileNavigationView: UIView {
     var user: User? {
         didSet {
             guard let user = user else { return }
+            var titledLogin = "\n"
+            
+            if let title = user.titles.first {
+                titledLogin += title.name.replacingOccurrences(of: "%login", with: user.login, options: .regularExpression)
+            } else {
+                titledLogin += user.login
+            }
+            
             let attributed = NSMutableAttributedString(string: user.displayName, attributes: [
                 .foregroundColor: UIColor.white,
                 .font: UIFont.futuraBook(ofSize: 14)
             ])
-            let attributedLogin = NSAttributedString(string: "\n\(user.login)", attributes: [
+            
+            let attributedLogin = NSAttributedString(string: titledLogin, attributes: [
                 .foregroundColor: UIColor.white,
                 .font: UIFont.futuraBook(ofSize: 12)
             ])
