@@ -12,6 +12,7 @@ import ToolboxLGNT
 class ProfileController: DatasourceController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     private let navigationView = ProfileNavigationView()
+    private let sectionController = SectionController()
     var user: User? {
         didSet { navigationView.user = user }
     }
@@ -31,10 +32,15 @@ class ProfileController: DatasourceController {
         setupViews()
         setupLayouts()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        sectionController.viewDidAppear(animated)
+    }
     
     private func setupViews() {
         view.addSubview(background)
         view.addSubview(navigationView)
+        view.addSubview(sectionController.view)
     }
     
     private func setupLayouts() {
@@ -42,11 +48,15 @@ class ProfileController: DatasourceController {
 
         _ = background.fill(.horizontaly, view)
         _ = background.constraint(.top, to: view)
-        _ = background.constraint(.bottom, to: navigationView)
+        _ = background.constraint(.bottom, to: sectionController.view)
         
         _ = navigationView.fill(.horizontaly, view)
         _ = navigationView.constraint(.top, to: view.safeAreaLayoutGuide)
         _ = navigationView.constraint(dimension: .height, constant: navbarHeight)
+        
+        _ = sectionController.view.fill(.horizontaly, view)
+        _ = sectionController.view.constraint(.top, to: navigationView, .bottom)
+        _ = sectionController.view.constraint(dimension: .height, constant: 25)
     }
     
     override func setup(collectionView: UICollectionView) {
@@ -54,12 +64,13 @@ class ProfileController: DatasourceController {
         
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         guard let navbarHeight = navigationController?.navigationBar.frame.height else { return }
-        let inset = UIEdgeInsets(top: navbarHeight, left: 0, bottom: 0, right: 0)
+        let inset = UIEdgeInsets(top: navbarHeight + sectionController.view.frame.height, left: 0, bottom: 0, right: 0)
         
         layout.scrollDirection = .horizontal
         collectionView.backgroundColor = .clear
         collectionView.contentInset = inset
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = true
     }
     
     func handleBack() {
@@ -76,6 +87,12 @@ class ProfileController: DatasourceController {
     }
     
     override func sizeForItem(at indexPath: IndexPath) -> CGSize {
-        return collectionView?.frame.size ?? .zero
+        guard let navbarHeight = navigationController?.navigationBar.frame.height else { return .zero }
+        guard let frame = collectionView?.frame else { return .zero }
+        return CGSize(width: frame.width, height: frame.height - navbarHeight)
+    }
+    
+    override func lineSpacing(in section: Int) -> CGFloat {
+        return 0
     }
 }
