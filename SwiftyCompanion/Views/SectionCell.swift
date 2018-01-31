@@ -27,7 +27,6 @@ class SectionCell: DatasourceCell {
     
     private let label: UILabel = {
         let label = UILabel()
-//        label.backgroundColor = .brown
         label.font = .futuraBold(ofSize: 12)
         label.textColor = .lightGray
         label.textAlignment = .center

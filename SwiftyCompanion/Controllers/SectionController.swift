@@ -10,7 +10,9 @@ import UIKit
 import ToolboxLGNT
 
 class SectionController: DatasourceController {
-    private let items = ["OVERVIEW", "PROJECTS", "SKILLS"]
+    private let items = ["OVERVIEW", "PROJECTS", "ACHIEVMENTS", "PARTERNSHIP", "PATRONAGE", "SKILLS"]
+    private var originConstraint: NSLayoutConstraint?
+    private var sizeConstraint: NSLayoutConstraint?
     override var types: [DatasourceCell.Type] {
         return [SectionCell.self]
     }
@@ -32,16 +34,18 @@ class SectionController: DatasourceController {
         super.viewDidAppear(animated)
         let indexPath = IndexPath(item: 0, section: 0)
         setupGradientLayer()
-        collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .left)
+        collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
     }
     
     private func setupLayouts() {
         let indexPath = IndexPath(item: 0, section: 0)
         let cellSize = sizeForItem(at: indexPath)
-        _ = gradientBar.constraint(.leading, to: view)
+        
         _ = gradientBar.constraint(.bottom, to: view)
         _ = gradientBar.constraint(dimension: .height, constant: 2)
-        _ = gradientBar.constraint(dimension: .width, constant: cellSize.width)
+        
+        originConstraint = gradientBar.constraint(.leading, to: view)
+        sizeConstraint = gradientBar.constraint(dimension: .width, constant: cellSize.width)
     }
     
     private func setupGradientLayer() {
@@ -58,6 +62,8 @@ class SectionController: DatasourceController {
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         layout.scrollDirection = .horizontal
         collectionView.backgroundColor = .clear
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isScrollEnabled = false
     }
     
     override func numberOfItems(in section: Int) -> Int {
@@ -79,5 +85,23 @@ class SectionController: DatasourceController {
     
     override func itemSpacing(in section: Int) -> CGFloat {
         return 0
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+        }) { _ in
+            self.scrollGradientBar(at: indexPath)
+        }
+    }
+    
+    private func scrollGradientBar(at indexPath: IndexPath) {
+        guard let cell = collectionView?.cellForItem(at: indexPath) else { return }
+        originConstraint?.constant = cell.frame.origin.x - (collectionView?.contentOffset.x ?? 0)
+        sizeConstraint?.constant = cell.frame.width
+        
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
 }
