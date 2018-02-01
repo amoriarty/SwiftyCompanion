@@ -11,13 +11,21 @@ import ToolboxLGNT
 
 class ProfileController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SectionDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-    private let sections = [1, 2, 3, 4, 5, 6]
     private let navigationView = ProfileNavigationView()
     private let reuseId = "ProfileCell"
     private var indexPath = IndexPath(item: 0, section: 0)
     var user: User? {
         didSet { navigationView.user = user }
     }
+    
+    private let feedControllers: [FeedController] = [
+        OverviewController(),
+        FeedController(),
+        FeedController(),
+        FeedController(),
+        FeedController(),
+        FeedController()
+    ]
     
     private lazy var sectionController: SectionController = {
         let layout = UICollectionViewFlowLayout()
@@ -105,12 +113,14 @@ class ProfileController: UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sections.count
+        return feedControllers.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as! ProfileCell
-        cell.backgroundColor = indexPath.item % 2 == 0 ? .green : .white
+        let controller = feedControllers[indexPath.item]
+        controller.user = user
+        controller.collectionView = cell.collectionView
         return cell
     }
     
