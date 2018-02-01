@@ -9,14 +9,12 @@
 import UIKit
 import ToolboxLGNT
 
-class SectionController: DatasourceController {
-    private let items = ["OVERVIEW", "PROJECTS", "ACHIEVMENTS", "PARTERNSHIP", "PATRONAGE", "SKILLS"]
+class SectionController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    private let sections = ["OVERVIEW", "PROJECTS", "ACHIEVMENTS", "PARTERNSHIP", "PATRONAGE", "SKILLS"]
     private var originConstraint: NSLayoutConstraint?
     private var sizeConstraint: NSLayoutConstraint?
     private var indexPath = IndexPath(item: 0, section: 0)
-    override var types: [DatasourceCell.Type] {
-        return [SectionCell.self]
-    }
+    private let reuseId = "SectionCell"
     
     private let gradientBar: UIView = {
         let view = UIView()
@@ -38,6 +36,7 @@ class SectionController: DatasourceController {
         view.addSubview(gradientBar)
         gradientBar.layer.addSublayer(gradientLayer)
         setupLayouts()
+        setupCollectionView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,41 +46,45 @@ class SectionController: DatasourceController {
     }
     
     private func setupLayouts() {
-        let indexPath = IndexPath(item: 0, section: 0)
         let cellSize = sizeForItem(at: indexPath)
-        
         _ = gradientBar.constraint(.bottom, to: view)
         _ = gradientBar.constraint(dimension: .height, constant: 2)
         originConstraint = gradientBar.constraint(.leading, to: view)
         sizeConstraint = gradientBar.constraint(dimension: .width, constant: cellSize.width)
     }
     
-    override func setup(collectionView: UICollectionView) {
-        super.setup(collectionView: collectionView)
-        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+    private func setupCollectionView() {
+        guard let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         layout.scrollDirection = .horizontal
-        collectionView.backgroundColor = .clear
-        collectionView.showsHorizontalScrollIndicator = false
+        collectionView?.backgroundColor = .clear
+        collectionView?.showsHorizontalScrollIndicator = false
+        collectionView?.register(SectionCell.self, forCellWithReuseIdentifier: reuseId)
     }
     
-    override func numberOfItems(in section: Int) -> Int {
-        return items.count
-    }
-    
-    override func item(at indexPath: IndexPath) -> Any? {
-        return items[indexPath.item]
-    }
-    
-    override func sizeForItem(at indexPath: IndexPath) -> CGSize {
+    private func sizeForItem(at indexPath: IndexPath) -> CGSize {
         guard let frame = collectionView?.frame else { return .zero }
-        let item = items[indexPath.item]
+        let item = sections[indexPath.item]
         let size = CGSize(width: .infinity, height: frame.height)
         let attributes: [NSAttributedStringKey: Any] = [.font: UIFont.futuraBold(ofSize: 12)]
         let boundingRect = NSString(string: item).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         return CGSize(width: boundingRect.width + 10, height: frame.height)
     }
     
-    override func itemSpacing(in section: Int) -> CGFloat {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return sections.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as! SectionCell
+        cell.section = sections[indexPath.item]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return sizeForItem(at: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
@@ -100,10 +103,7 @@ class SectionController: DatasourceController {
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let cell = collectionView?.cellForItem(at: indexPath) else { return }
-        
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
-            self.originConstraint?.constant = cell.frame.origin.x - scrollView.contentOffset.x
-            self.view.layoutIfNeeded()
-        }, completion: nil)
+        originConstraint?.constant = cell.frame.origin.x - scrollView.contentOffset.x
+        view.layoutIfNeeded()
     }
 }

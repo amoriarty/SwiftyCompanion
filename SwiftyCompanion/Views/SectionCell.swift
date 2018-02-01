@@ -7,14 +7,10 @@
 //
 
 import UIKit
-import ToolboxLGNT
 
-class SectionCell: DatasourceCell {
-    override var item: Any? {
-        didSet {
-            guard let section = item as? String else { return }
-            label.text = section
-        }
+class SectionCell: BaseCell {
+    var section: String? {
+        didSet { label.text = section }
     }
     
     override var isHighlighted: Bool {

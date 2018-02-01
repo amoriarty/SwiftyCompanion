@@ -35,7 +35,7 @@ class ProfileNavigationView: UIView {
             attributed.append(attributedLogin)
             profileText.attributedText = attributed
             profileImage.image = nil
-            ImageService.shared.getImage(at: user.imageUrl) { image in
+            ImageService.shared.getImage(at: user.imageUrl) { _, image in
                 self.profileImage.image = image
             }
         }

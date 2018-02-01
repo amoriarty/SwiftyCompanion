@@ -7,11 +7,10 @@
 //
 
 import UIKit
-import ToolboxLGNT
 
-class ProfileCell: DatasourceCell {
+class ProfileCell: BaseCell {
+    
     override func setupViews() {
         super.setupViews()
-        backgroundColor = .blue
     }
 }

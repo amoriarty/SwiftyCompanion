@@ -1,22 +1,24 @@
 //
-//  PreviewView.swift
+//  BaseCell.swift
 //  SwiftyCompanion
 //
-//  Created by Émilie Legent on 23/01/2018.
+//  Created by Émilie Legent on 01/02/2018.
 //  Copyright © 2018 Alexandre Legent. All rights reserved.
 //
 
 import UIKit
 
-class PreviewView: UICollectionReusableView {
-
+class BaseCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .green
+        setupViews()
+        setupLayouts()
     }
+    
+    func setupViews() {}
+    func setupLayouts() {}
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

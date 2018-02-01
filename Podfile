@@ -6,5 +6,5 @@ target 'SwiftyCompanion' do
   use_frameworks!
 
   # Pods for SwiftyCompanion
-  pod 'ToolboxLGNT', :path => "./ToolboxLGNT"
+  pod 'ToolboxLGNT', :git => "git@github.com:amoriarty/ToolboxLGNT.git"
 end

@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		AE041DB5F628B2F09D0A2227 /* Pods_SwiftyCompanion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B3E0A44CB00CB31C364D6B /* Pods_SwiftyCompanion.framework */; };
-		EC0F408A20179B1800C5E7DF /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC0F408920179B1800C5E7DF /* PreviewView.swift */; };
 		EC1788922020908E00B300B8 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1788912020908E00B300B8 /* ProfileCell.swift */; };
 		EC1788942020B01B00B300B8 /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1788932020B01B00B300B8 /* SectionController.swift */; };
 		EC1788962020B1E900B300B8 /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1788952020B1E900B300B8 /* SectionCell.swift */; };
 		EC416BB22016296F00F06010 /* ProfileNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC416BB12016296F00F06010 /* ProfileNavigationView.swift */; };
+		EC434327202331AD003DC3FB /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC434326202331AD003DC3FB /* BaseCell.swift */; };
 		EC4692C2200E0D7F00D6EFF6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692C1200E0D7F00D6EFF6 /* SearchView.swift */; };
 		EC4692C5200E120500D6EFF6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692C4200E120500D6EFF6 /* UIColor.swift */; };
 		EC4692C8200E180500D6EFF6 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692C7200E180500D6EFF6 /* UIFont.swift */; };
@@ -58,11 +58,11 @@
 		31B3E0A44CB00CB31C364D6B /* Pods_SwiftyCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyCompanion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		350543D1419EC668A8D35CD5 /* Pods-SwiftyCompanion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCompanion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion.debug.xcconfig"; sourceTree = "<group>"; };
 		9E6967190C8798F6A0B0EBEC /* Pods-SwiftyCompanion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCompanion.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion.release.xcconfig"; sourceTree = "<group>"; };
-		EC0F408920179B1800C5E7DF /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		EC1788912020908E00B300B8 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		EC1788932020B01B00B300B8 /* SectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
 		EC1788952020B1E900B300B8 /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
 		EC416BB12016296F00F06010 /* ProfileNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationView.swift; sourceTree = "<group>"; };
+		EC434326202331AD003DC3FB /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		EC4692C1200E0D7F00D6EFF6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		EC4692C4200E120500D6EFF6 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		EC4692C7200E180500D6EFF6 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
@@ -133,7 +133,6 @@
 				EC4692C1200E0D7F00D6EFF6 /* SearchView.swift */,
 				EC4692F6200E418A00D6EFF6 /* InputStackView.swift */,
 				EC416BB12016296F00F06010 /* ProfileNavigationView.swift */,
-				EC0F408920179B1800C5E7DF /* PreviewView.swift */,
 				EC1788912020908E00B300B8 /* ProfileCell.swift */,
 				EC1788952020B1E900B300B8 /* SectionCell.swift */,
 			);
@@ -146,6 +145,7 @@
 				EC4692F8200E55D100D6EFF6 /* TextField.swift */,
 				EC4692C4200E120500D6EFF6 /* UIColor.swift */,
 				EC4692C7200E180500D6EFF6 /* UIFont.swift */,
+				EC434326202331AD003DC3FB /* BaseCell.swift */,
 				EC4692C9200E185400D6EFF6 /* Fonts */,
 			);
 			path = Toolbox;
@@ -407,6 +407,7 @@
 				EC1788942020B01B00B300B8 /* SectionController.swift in Sources */,
 				ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */,
 				EC84059820208A5500DBA3F3 /* Configurations.swift in Sources */,
+				EC434327202331AD003DC3FB /* BaseCell.swift in Sources */,
 				EC416BB22016296F00F06010 /* ProfileNavigationView.swift in Sources */,
 				EC4692C5200E120500D6EFF6 /* UIColor.swift in Sources */,
 				EC469304200F5FFB00D6EFF6 /* Title.swift in Sources */,
@@ -417,7 +418,6 @@
 				EC469300200F542000D6EFF6 /* User.swift in Sources */,
 				EC46930B200F7A4400D6EFF6 /* APIService.swift in Sources */,
 				EC1788962020B1E900B300B8 /* SectionCell.swift in Sources */,
-				EC0F408A20179B1800C5E7DF /* PreviewView.swift in Sources */,
 				EC4692C2200E0D7F00D6EFF6 /* SearchView.swift in Sources */,
 				EC4692C8200E180500D6EFF6 /* UIFont.swift in Sources */,
 				EC1788922020908E00B300B8 /* ProfileCell.swift in Sources */,
