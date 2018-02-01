@@ -21,7 +21,7 @@ class ProfileController: UIViewController, UICollectionViewDelegate, UICollectio
     private let feedControllers: [FeedController] = [
         OverviewController(),
         FeedController(),
-        FeedController(),
+        AchievementsController(),
         FeedController(),
         FeedController(),
         FeedController()
