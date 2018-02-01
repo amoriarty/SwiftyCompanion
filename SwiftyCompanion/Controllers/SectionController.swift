@@ -9,12 +9,17 @@
 import UIKit
 import ToolboxLGNT
 
+protocol SectionDelegate: class {
+    func didSelectSection(at indexPath: IndexPath)
+}
+
 class SectionController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private let sections = ["OVERVIEW", "PROJECTS", "ACHIEVMENTS", "PARTERNSHIP", "PATRONAGE", "SKILLS"]
     private var originConstraint: NSLayoutConstraint?
     private var sizeConstraint: NSLayoutConstraint?
     private var indexPath = IndexPath(item: 0, section: 0)
     private let reuseId = "SectionCell"
+    weak var sectionDelegate: SectionDelegate?
     
     private let gradientBar: UIView = {
         let view = UIView()
@@ -58,6 +63,7 @@ class SectionController: UICollectionViewController, UICollectionViewDelegateFlo
         layout.scrollDirection = .horizontal
         collectionView?.backgroundColor = .clear
         collectionView?.showsHorizontalScrollIndicator = false
+        collectionView?.isScrollEnabled = false
         collectionView?.register(SectionCell.self, forCellWithReuseIdentifier: reuseId)
     }
     
@@ -68,6 +74,23 @@ class SectionController: UICollectionViewController, UICollectionViewDelegateFlo
         let attributes: [NSAttributedStringKey: Any] = [.font: UIFont.futuraBold(ofSize: 12)]
         let boundingRect = NSString(string: item).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         return CGSize(width: boundingRect.width + 10, height: frame.height)
+    }
+    
+    func scroll(at indexPath: IndexPath) {
+        guard let collectionView = collectionView else { return }
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+        guard let previousCell = collectionView.cellForItem(at: self.indexPath) else { return }
+        self.indexPath = indexPath
+        previousCell.isSelected = false
+        cell.isSelected = true
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
+            self.originConstraint?.constant = cell.frame.origin.x - collectionView.contentOffset.x
+            self.sizeConstraint?.constant = cell.frame.width
+            self.view.layoutIfNeeded()
+            self.gradientLayer.frame = self.gradientBar.bounds
+        }, completion: nil)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -89,16 +112,7 @@ class SectionController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
-        self.indexPath = indexPath
-        
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-            self.originConstraint?.constant = cell.frame.origin.x - collectionView.contentOffset.x
-            self.sizeConstraint?.constant = cell.frame.width
-            self.view.layoutIfNeeded()
-            self.gradientLayer.frame = self.gradientBar.bounds
-        }, completion: nil)
+        sectionDelegate?.didSelectSection(at: indexPath)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {

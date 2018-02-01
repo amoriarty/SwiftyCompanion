@@ -9,17 +9,20 @@
 import UIKit
 import ToolboxLGNT
 
-class ProfileController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ProfileController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SectionDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-    private let reuseId = "ProfileCell"
+    private let sections = [1, 2, 3, 4, 5, 6]
     private let navigationView = ProfileNavigationView()
+    private let reuseId = "ProfileCell"
+    private var indexPath = IndexPath(item: 0, section: 0)
     var user: User? {
         didSet { navigationView.user = user }
     }
     
-    private let sectionController: SectionController = {
+    private lazy var sectionController: SectionController = {
         let layout = UICollectionViewFlowLayout()
         let controller = SectionController(collectionViewLayout: layout)
+        controller.sectionDelegate = self
         return controller
     }()
     
@@ -81,20 +84,33 @@ class ProfileController: UIViewController, UICollectionViewDelegate, UICollectio
         
         _ = collectionView.fill(.horizontaly, view.safeAreaLayoutGuide)
         _ = collectionView.constraint(.top, to: sectionController.view, .bottom)
-        _ = collectionView.constraint(.bottom, to: view.safeAreaLayoutGuide)
+        _ = collectionView.constraint(.bottom, to: view)
     }
     
     func handleBack() {
         navigationController?.popViewController(animated: true)
     }
     
+    func didSelectSection(at indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let item = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        
+        if item != indexPath.item {
+            indexPath = IndexPath(item: item, section: 0)
+            sectionController.scroll(at: indexPath)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as! ProfileCell
-        cell.backgroundColor = indexPath.item % 2 == 0 ? .green : .purple
+        cell.backgroundColor = indexPath.item % 2 == 0 ? .green : .white
         return cell
     }
     
