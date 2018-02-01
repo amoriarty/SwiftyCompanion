@@ -13,6 +13,7 @@ class SectionController: DatasourceController {
     private let items = ["OVERVIEW", "PROJECTS", "ACHIEVMENTS", "PARTERNSHIP", "PATRONAGE", "SKILLS"]
     private var originConstraint: NSLayoutConstraint?
     private var sizeConstraint: NSLayoutConstraint?
+    private var indexPath = IndexPath(item: 0, section: 0)
     override var types: [DatasourceCell.Type] {
         return [SectionCell.self]
     }
@@ -23,17 +24,25 @@ class SectionController: DatasourceController {
         return view
     }()
     
+    private let gradientLayer: CAGradientLayer = {
+        let layer = CAGradientLayer()
+        layer.startPoint = CGPoint(x: 0, y: 0.5)
+        layer.endPoint = CGPoint(x: 1, y: 0.5)
+        layer.colors = [UIColor.swiftyLightBlue.cgColor, UIColor.swiftyGreen.cgColor]
+        return layer
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
         view.addSubview(gradientBar)
+        gradientBar.layer.addSublayer(gradientLayer)
         setupLayouts()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let indexPath = IndexPath(item: 0, section: 0)
-        setupGradientLayer()
+        gradientLayer.frame = gradientBar.bounds
         collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
     }
     
@@ -43,18 +52,8 @@ class SectionController: DatasourceController {
         
         _ = gradientBar.constraint(.bottom, to: view)
         _ = gradientBar.constraint(dimension: .height, constant: 2)
-        
         originConstraint = gradientBar.constraint(.leading, to: view)
         sizeConstraint = gradientBar.constraint(dimension: .width, constant: cellSize.width)
-    }
-    
-    private func setupGradientLayer() {
-        let layer = CAGradientLayer()
-        layer.frame = gradientBar.bounds
-        layer.startPoint = CGPoint(x: 0, y: 0.5)
-        layer.endPoint = CGPoint(x: 1, y: 0.5)
-        layer.colors = [UIColor.swiftyLightBlue.cgColor, UIColor.swiftyGreen.cgColor]
-        gradientBar.layer.addSublayer(layer)
     }
     
     override func setup(collectionView: UICollectionView) {
@@ -63,7 +62,6 @@ class SectionController: DatasourceController {
         layout.scrollDirection = .horizontal
         collectionView.backgroundColor = .clear
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.isScrollEnabled = false
     }
     
     override func numberOfItems(in section: Int) -> Int {
@@ -88,19 +86,23 @@ class SectionController: DatasourceController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+        guard let cell = collectionView.cellForItem(at: indexPath) else { return }
+        self.indexPath = indexPath
+        
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-        }) { _ in
-            self.scrollGradientBar(at: indexPath)
-        }
+            self.originConstraint?.constant = cell.frame.origin.x - collectionView.contentOffset.x
+            self.sizeConstraint?.constant = cell.frame.width
+            self.view.layoutIfNeeded()
+            self.gradientLayer.frame = self.gradientBar.bounds
+        }, completion: nil)
     }
     
-    private func scrollGradientBar(at indexPath: IndexPath) {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let cell = collectionView?.cellForItem(at: indexPath) else { return }
-        originConstraint?.constant = cell.frame.origin.x - (collectionView?.contentOffset.x ?? 0)
-        sizeConstraint?.constant = cell.frame.width
         
-        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut, animations: {
+            self.originConstraint?.constant = cell.frame.origin.x - scrollView.contentOffset.x
             self.view.layoutIfNeeded()
         }, completion: nil)
     }
