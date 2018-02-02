@@ -25,7 +25,7 @@ class ProfileController: UIViewController, UICollectionViewDelegate, UICollectio
         OverviewController(),
         ProjectsController(),
         AchievementsController(),
-        FeedController(),
+        ParternshipsController(),
         FeedController(),
         FeedController()
     ]

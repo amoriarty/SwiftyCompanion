@@ -25,9 +25,10 @@ struct User: Decodable {
     let cursusUser: [CursusUser]
     let achievements: [Achievement]
     let projectsUser: [ProjectUser]
+    let partnerships: [Partnership]
     
     private enum CodingKeys: CodingKey, String {
-        case id, login, email, phone, location, wallet, titles, campus, achievements
+        case id, login, email, phone, location, wallet, titles, campus, achievements, partnerships
         case displayName = "displayname"
         case correctionPoint = "correction_point"
         case imageUrl = "image_url"

@@ -52,6 +52,9 @@
 		EC9B92A920245D970048EB60 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9B92A820245D970048EB60 /* Project.swift */; };
 		EC9B92AB20245EF50048EB60 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9B92AA20245EF50048EB60 /* ProjectCell.swift */; };
 		EC9B92AD202461260048EB60 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9B92AC202461260048EB60 /* HeaderCell.swift */; };
+		EC9B92AF202475990048EB60 /* ParternshipsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9B92AE202475990048EB60 /* ParternshipsController.swift */; };
+		EC9B92B12024761E0048EB60 /* PartnershipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9B92B02024761E0048EB60 /* PartnershipCell.swift */; };
+		EC9B92B32024768E0048EB60 /* Partnership.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9B92B22024768E0048EB60 /* Partnership.swift */; };
 		ECA53D8320237ADD0075B5A4 /* Achievement.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA53D8220237ADD0075B5A4 /* Achievement.swift */; };
 		ECA53D8520237C4E0075B5A4 /* AchievementsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA53D8420237C4E0075B5A4 /* AchievementsController.swift */; };
 		ECA53D8720237E8F0075B5A4 /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA53D8620237E8F0075B5A4 /* AchievementCell.swift */; };
@@ -111,6 +114,9 @@
 		EC9B92A820245D970048EB60 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		EC9B92AA20245EF50048EB60 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		EC9B92AC202461260048EB60 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		EC9B92AE202475990048EB60 /* ParternshipsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParternshipsController.swift; sourceTree = "<group>"; };
+		EC9B92B02024761E0048EB60 /* PartnershipCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnershipCell.swift; sourceTree = "<group>"; };
+		EC9B92B22024768E0048EB60 /* Partnership.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Partnership.swift; sourceTree = "<group>"; };
 		ECA53D8220237ADD0075B5A4 /* Achievement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievement.swift; sourceTree = "<group>"; };
 		ECA53D8420237C4E0075B5A4 /* AchievementsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsController.swift; sourceTree = "<group>"; };
 		ECA53D8620237E8F0075B5A4 /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
@@ -157,6 +163,7 @@
 				EC9B92AC202461260048EB60 /* HeaderCell.swift */,
 				EC9B92AA20245EF50048EB60 /* ProjectCell.swift */,
 				ECA53D8620237E8F0075B5A4 /* AchievementCell.swift */,
+				EC9B92B02024761E0048EB60 /* PartnershipCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +218,7 @@
 				EC46930C200F7E6D00D6EFF6 /* Auth.swift */,
 				ECA53D8220237ADD0075B5A4 /* Achievement.swift */,
 				EC9B92A820245D970048EB60 /* Project.swift */,
+				EC9B92B22024768E0048EB60 /* Partnership.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -267,6 +275,7 @@
 				ECB9C8CA202367BC0098B5F2 /* OverviewController.swift */,
 				EC9B92A620245D4A0048EB60 /* ProjectsController.swift */,
 				ECA53D8420237C4E0075B5A4 /* AchievementsController.swift */,
+				EC9B92AE202475990048EB60 /* ParternshipsController.swift */,
 				EC1788932020B01B00B300B8 /* SectionController.swift */,
 			);
 			path = Controllers;
@@ -435,9 +444,11 @@
 				ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */,
 				EC9B92AB20245EF50048EB60 /* ProjectCell.swift in Sources */,
 				EC84059820208A5500DBA3F3 /* Configurations.swift in Sources */,
+				EC9B92B12024761E0048EB60 /* PartnershipCell.swift in Sources */,
 				EC434327202331AD003DC3FB /* BaseCell.swift in Sources */,
 				EC416BB22016296F00F06010 /* ProfileNavigationView.swift in Sources */,
 				EC4692C5200E120500D6EFF6 /* UIColor.swift in Sources */,
+				EC9B92AF202475990048EB60 /* ParternshipsController.swift in Sources */,
 				EC469304200F5FFB00D6EFF6 /* Title.swift in Sources */,
 				ECA53D8720237E8F0075B5A4 /* AchievementCell.swift in Sources */,
 				EC4692F7200E418A00D6EFF6 /* InputStackView.swift in Sources */,
@@ -456,6 +467,7 @@
 				ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */,
 				EC9B92A720245D4A0048EB60 /* ProjectsController.swift in Sources */,
 				EC4692FD200F474300D6EFF6 /* ProfileController.swift in Sources */,
+				EC9B92B32024768E0048EB60 /* Partnership.swift in Sources */,
 				EC9B92AD202461260048EB60 /* HeaderCell.swift in Sources */,
 				ECA53D8520237C4E0075B5A4 /* AchievementsController.swift in Sources */,
 				EC9B92A920245D970048EB60 /* Project.swift in Sources */,
