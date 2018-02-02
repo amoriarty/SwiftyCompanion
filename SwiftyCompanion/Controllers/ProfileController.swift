@@ -15,12 +15,15 @@ class ProfileController: UIViewController, UICollectionViewDelegate, UICollectio
     private let reuseId = "ProfileCell"
     private var indexPath = IndexPath(item: 0, section: 0)
     var user: User? {
-        didSet { navigationView.user = user }
+        didSet {
+            navigationView.user = user
+            collectionView.reloadData()
+        }
     }
     
     private let feedControllers: [FeedController] = [
         OverviewController(),
-        FeedController(),
+        ProjectsController(),
         AchievementsController(),
         FeedController(),
         FeedController(),

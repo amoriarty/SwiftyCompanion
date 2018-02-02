@@ -17,4 +17,6 @@ extension UIColor {
     static let swiftyGreen = UIColor(r: 45, g: 213, b: 122)
     static let swiftyLightGray = UIColor(r: 239, g: 239, b: 239)
     static let swiftyBorderGray = UIColor(r: 229, g: 229, b: 229)
+    static let swiftySuccess = UIColor(r: 92, g: 120, b: 50)
+    static let swiftyWarning = UIColor(r: 216, g: 99, b: 111)
 }

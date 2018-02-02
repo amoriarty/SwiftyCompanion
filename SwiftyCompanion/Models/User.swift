@@ -24,6 +24,7 @@ struct User: Decodable {
     let campusUser: [CampusUser]
     let cursusUser: [CursusUser]
     let achievements: [Achievement]
+    let projectsUser: [ProjectUser]
     
     private enum CodingKeys: CodingKey, String {
         case id, login, email, phone, location, wallet, titles, campus, achievements
@@ -33,5 +34,6 @@ struct User: Decodable {
         case titlesUser = "titles_users"
         case campusUser = "campus_users"
         case cursusUser = "cursus_users"
+        case projectsUser = "projects_users"
     }
 }
