@@ -14,7 +14,7 @@ protocol SectionDelegate: class {
 }
 
 class SectionController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    private let sections = ["OVERVIEW", "PROJECTS", "ACHIEVMENTS", "PARTERNSHIP", "PATRONAGE", "SKILLS"]
+    private let sections = ["OVERVIEW", "PROJECTS", "ACHIEVMENTS", "PARTERNSHIP", "SKILLS"]
     private var originConstraint: NSLayoutConstraint?
     private var sizeConstraint: NSLayoutConstraint?
     private var indexPath = IndexPath(item: 0, section: 0)

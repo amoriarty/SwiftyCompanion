@@ -270,13 +270,13 @@
 			isa = PBXGroup;
 			children = (
 				ECE630C92004FC0900FF987D /* SearchController.swift */,
+				EC1788932020B01B00B300B8 /* SectionController.swift */,
 				EC4692FC200F474300D6EFF6 /* ProfileController.swift */,
 				ECB9C8C6202361AF0098B5F2 /* FeedController.swift */,
 				ECB9C8CA202367BC0098B5F2 /* OverviewController.swift */,
 				EC9B92A620245D4A0048EB60 /* ProjectsController.swift */,
 				ECA53D8420237C4E0075B5A4 /* AchievementsController.swift */,
 				EC9B92AE202475990048EB60 /* ParternshipsController.swift */,
-				EC1788932020B01B00B300B8 /* SectionController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
