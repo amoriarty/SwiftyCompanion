@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SectionCell: BaseCell {
-    var section: String? {
-        didSet { label.text = section }
+class SectionCell: GenericCollectionViewCell<String> {
+    override var item: String? {
+        didSet { label.text = item }
     }
     
     override var isHighlighted: Bool {

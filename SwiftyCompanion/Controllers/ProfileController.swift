@@ -30,9 +30,8 @@ class ProfileController: UIViewController, UICollectionViewDelegate, UICollectio
     ]
     
     private lazy var sectionController: SectionController = {
-        let layout = UICollectionViewFlowLayout()
-        let controller = SectionController(collectionViewLayout: layout)
-        controller.sectionDelegate = self
+        let controller = SectionController()
+        controller.delegate = self
         return controller
     }()
     

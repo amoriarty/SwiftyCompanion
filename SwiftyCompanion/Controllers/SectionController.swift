@@ -13,13 +13,14 @@ protocol SectionDelegate: class {
     func didSelectSection(at indexPath: IndexPath)
 }
 
-class SectionController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    private let sections = ["OVERVIEW", "PROJECTS", "ACHIEVMENTS", "PARTERNSHIP", "SKILLS"]
+class SectionController: GenericCollectionViewController<SectionCell, String> {
     private var originConstraint: NSLayoutConstraint?
     private var sizeConstraint: NSLayoutConstraint?
     private var indexPath = IndexPath(item: 0, section: 0)
-    private let reuseId = "SectionCell"
-    weak var sectionDelegate: SectionDelegate?
+    weak var delegate: SectionDelegate?
+    override var items: [[String]]? {
+        return [["OVERVIEW", "PROJECTS", "ACHIEVMENTS", "PARTERNSHIP", "SKILLS"]]
+    }
     
     private let gradientBar: UIView = {
         let view = UIView()
@@ -37,9 +38,7 @@ class SectionController: UICollectionViewController, UICollectionViewDelegateFlo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .clear
-        view.addSubview(gradientBar)
-        gradientBar.layer.addSublayer(gradientLayer)
+        setupViews()
         setupLayouts()
         setupCollectionView()
     }
@@ -48,6 +47,12 @@ class SectionController: UICollectionViewController, UICollectionViewDelegateFlo
         super.viewDidAppear(animated)
         gradientLayer.frame = gradientBar.bounds
         collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+    }
+    
+    private func setupViews() {
+        view.backgroundColor = .clear
+        view.addSubview(gradientBar)
+        gradientBar.layer.addSublayer(gradientLayer)
     }
     
     private func setupLayouts() {
@@ -64,12 +69,11 @@ class SectionController: UICollectionViewController, UICollectionViewDelegateFlo
         collectionView?.backgroundColor = .clear
         collectionView?.showsHorizontalScrollIndicator = false
         collectionView?.isScrollEnabled = false
-        collectionView?.register(SectionCell.self, forCellWithReuseIdentifier: reuseId)
     }
     
     private func sizeForItem(at indexPath: IndexPath) -> CGSize {
         guard let frame = collectionView?.frame else { return .zero }
-        let item = sections[indexPath.item]
+        guard let item = items?[indexPath.section][indexPath.item] else { return .zero }
         let size = CGSize(width: .infinity, height: frame.height)
         let attributes: [NSAttributedStringKey: Any] = [.font: UIFont.futuraBold(ofSize: 12)]
         let boundingRect = NSString(string: item).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
@@ -93,26 +97,12 @@ class SectionController: UICollectionViewController, UICollectionViewDelegateFlo
         }, completion: nil)
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sections.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as! SectionCell
-        cell.section = sections[indexPath.item]
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return sizeForItem(at: indexPath)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        sectionDelegate?.didSelectSection(at: indexPath)
+        delegate?.didSelectSection(at: indexPath)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
