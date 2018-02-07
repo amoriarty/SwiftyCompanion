@@ -18,6 +18,7 @@ struct Skill: Decodable {
     let id: Int
     let name: String
     let level: Double
+    let ratio: Double?
 }
 
 struct CursusUser: Decodable {
