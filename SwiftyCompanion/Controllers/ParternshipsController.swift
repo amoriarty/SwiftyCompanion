@@ -8,14 +8,19 @@
 
 import UIKit
 
-class PartnershipsController: GenericCollectionViewController<PartnershipCell, Partnership>, FeedDelegate {
-    var user: User? {
-        didSet { collectionView?.reloadData() }
-    }
-
+class PartnershipsController: GenericCollectionViewController<PartnershipCell, Partnership>, UserServiceDelegate {
     override var items: [[Partnership]]? {
-        guard let user = user else { return nil }
+        guard let user = UserService.shared.user else { return nil }
         return [user.partnerships]
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        UserService.shared.add(delegate: self)
+    }
+    
+    func userDidChange() {
+        collectionView?.reloadData()
     }
 }
 

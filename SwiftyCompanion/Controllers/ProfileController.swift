@@ -9,17 +9,11 @@
 import UIKit
 import ToolboxLGNT
 
-class ProfileController: GenericViewController {
+class ProfileController: GenericViewController, UserServiceDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     private let navigationView = ProfileNavigationView()
     private let sectionController = SectionController()
     private let feedController = FeedController()
-    var user: User? {
-        didSet {
-            navigationView.user = user
-            feedController.user = user
-        }
-    }
     
     private let background: UIImageView = {
         let image = UIImage(named: "LoginBackground")
@@ -35,11 +29,13 @@ class ProfileController: GenericViewController {
         navigationView.controller = self
         sectionController.delegate = feedController
         feedController.sectionController = sectionController
+        UserService.shared.add(delegate: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         sectionController.viewDidAppear(animated)
+        navigationView.user = UserService.shared.user
     }
     
     override func setupViews() {
@@ -67,5 +63,9 @@ class ProfileController: GenericViewController {
     
     func handleBack() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func userDidChange() {
+        navigationView.user = UserService.shared.user
     }
 }

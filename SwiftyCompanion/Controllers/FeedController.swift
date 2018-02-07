@@ -8,20 +8,12 @@
 
 import UIKit
 
-protocol FeedDelegate: UICollectionViewDelegate, UICollectionViewDataSource {
-    var user: User? { get set }
-}
-
 class FeedController: GenericCollectionViewController<FeedCell, UICollectionViewController>, SectionDelegate {
     private var indexPath = IndexPath(item: 0, section: 0)
     weak var sectionController: SectionController?
     private let controllers = [OverviewController(), ProjectsController(), AchievementsController(), PartnershipsController(), SkillsController()]
     override var items: [[UICollectionViewController]]? {
         return [controllers]
-    }
-    
-    var user: User? {
-        didSet { controllers.forEach { ($0 as? FeedDelegate)?.user = user } }
     }
     
     override func setupViews() {

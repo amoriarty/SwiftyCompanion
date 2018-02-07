@@ -8,11 +8,22 @@
 
 import UIKit
 
-class OverviewController: GenericCollectionViewController<OverviewCell, Any>, FeedDelegate {
-    var user: User?
+class OverviewController: GenericCollectionViewController<OverviewCell, User>, UserServiceDelegate {
+    override var items: [[User]]? {
+        guard let user = UserService.shared.user else { return nil }
+        return [[user]]
+    }
     
-    override func setupCollectionView() {
-        super.setupCollectionView()
-        collectionView?.backgroundColor = .blue
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        UserService.shared.add(delegate: self)
+    }
+    
+    func userDidChange() {
+        collectionView?.reloadData()
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.frame.size
     }
 }

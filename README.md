@@ -1,6 +1,7 @@
 # Swifty Companion
 
 ## TODO
+* Be able to change cursus.
 * Handle errors if token authentication failed.
 * Handle errors when requested login failed.
 * Activity monitor while loading user.

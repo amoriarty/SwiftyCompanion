@@ -12,7 +12,13 @@ struct Cursus: Decodable {
     let id: Int
     let name: String
     let slug: String
+    
+    static func ==(left: Cursus, right: Cursus) -> Bool {
+        return left.id == right.id
+    }
 }
+
+
 
 struct Skill: Decodable {
     let id: Int

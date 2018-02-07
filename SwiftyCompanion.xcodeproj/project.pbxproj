@@ -69,6 +69,7 @@
 		ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C92004FC0900FF987D /* SearchController.swift */; };
 		ECE630CF2004FC0900FF987D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE630CE2004FC0900FF987D /* Assets.xcassets */; };
 		ECE630D22004FC0900FF987D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECE630D02004FC0900FF987D /* LaunchScreen.storyboard */; };
+		ECF4F291202B55070032C59A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4F290202B55070032C59A /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 		ECE630CE2004FC0900FF987D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECE630D12004FC0900FF987D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECE630D32004FC0900FF987D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ECF4F290202B55070032C59A /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				EC46930A200F7A4400D6EFF6 /* APIService.swift */,
+				ECF4F290202B55070032C59A /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				EC9B92A720245D4A0048EB60 /* ProjectsController.swift in Sources */,
 				EC4692FD200F474300D6EFF6 /* ProfileController.swift in Sources */,
 				EC9B92B32024768E0048EB60 /* Partnership.swift in Sources */,
+				ECF4F291202B55070032C59A /* UserService.swift in Sources */,
 				EC9B92AD202461260048EB60 /* HeaderCell.swift in Sources */,
 				ECA53D8520237C4E0075B5A4 /* AchievementsController.swift in Sources */,
 				EC245253202A0EB60021BFAC /* GenericCollectionViewController.swift in Sources */,

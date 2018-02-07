@@ -8,18 +8,21 @@
 
 import UIKit
 
-class ProjectsController: GenericCollectionViewController<ProjectCell, ProjectUser>, FeedDelegate {
+class ProjectsController: GenericCollectionViewController<ProjectCell, ProjectUser>, UserServiceDelegate {
     private let headerId = "HeaderID"
     private let headers = ["In progress", "Finished"]
-    var user: User? {
-        didSet { collectionView?.reloadData() }
-    }
     
     override var items: [[ProjectUser]]? {
-        guard let projects = user?.projectsUser else { return nil }
+        guard let user = UserService.shared.user else { return nil }
+        let projects = user.projectsUser
         let ungoing = projects.filter { $0.status == "in_progress" && $0.project.parent == nil }
         let finished = projects.filter { $0.status == "finished" && $0.project.parent == nil }
         return [ungoing.reversed(), finished.reversed()]
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        UserService.shared.add(delegate: self)
     }
     
     override func setupCollectionView() {
@@ -27,6 +30,10 @@ class ProjectsController: GenericCollectionViewController<ProjectCell, ProjectUs
         guard let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         layout.sectionHeadersPinToVisibleBounds = true
         collectionView?.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
+    }
+    
+    func userDidChange() {
+        collectionView?.reloadData()
     }
     
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

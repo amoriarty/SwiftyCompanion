@@ -80,7 +80,7 @@ class SearchController: GenericViewController, InputStackDelegate {
             self.lock = false
             
             guard let user = user else { return }
-            self.profileController.user = user
+            UserService.shared.user = user
             self.navigationController?.pushViewController(self.profileController, animated: true)
         }
     }
