@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AE041DB5F628B2F09D0A2227 /* Pods_SwiftyCompanion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B3E0A44CB00CB31C364D6B /* Pods_SwiftyCompanion.framework */; };
-		EC1788922020908E00B300B8 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1788912020908E00B300B8 /* ProfileCell.swift */; };
 		EC1788942020B01B00B300B8 /* SectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1788932020B01B00B300B8 /* SectionController.swift */; };
 		EC1788962020B1E900B300B8 /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1788952020B1E900B300B8 /* SectionCell.swift */; };
 		EC245253202A0EB60021BFAC /* GenericCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC245252202A0EB60021BFAC /* GenericCollectionViewController.swift */; };
@@ -64,6 +63,8 @@
 		ECC0DC5E202B0DBB0036BD9F /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DC5D202B0DBB0036BD9F /* FeedCell.swift */; };
 		ECC0DC61202B0DF60036BD9F /* GenericCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DC60202B0DF60036BD9F /* GenericCollectionViewCell.swift */; };
 		ECC0DC63202B0E230036BD9F /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DC62202B0E230036BD9F /* SkillCell.swift */; };
+		ECC0DC65202B107B0036BD9F /* OverviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DC64202B107B0036BD9F /* OverviewCell.swift */; };
+		ECC0DC68202B10E90036BD9F /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DC67202B10E90036BD9F /* GenericViewController.swift */; };
 		ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C72004FC0900FF987D /* AppDelegate.swift */; };
 		ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C92004FC0900FF987D /* SearchController.swift */; };
 		ECE630CF2004FC0900FF987D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE630CE2004FC0900FF987D /* Assets.xcassets */; };
@@ -74,7 +75,6 @@
 		31B3E0A44CB00CB31C364D6B /* Pods_SwiftyCompanion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyCompanion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		350543D1419EC668A8D35CD5 /* Pods-SwiftyCompanion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCompanion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion.debug.xcconfig"; sourceTree = "<group>"; };
 		9E6967190C8798F6A0B0EBEC /* Pods-SwiftyCompanion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyCompanion.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyCompanion/Pods-SwiftyCompanion.release.xcconfig"; sourceTree = "<group>"; };
-		EC1788912020908E00B300B8 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		EC1788932020B01B00B300B8 /* SectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionController.swift; sourceTree = "<group>"; };
 		EC1788952020B1E900B300B8 /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
 		EC245252202A0EB60021BFAC /* GenericCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCollectionViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +130,8 @@
 		ECC0DC5D202B0DBB0036BD9F /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		ECC0DC60202B0DF60036BD9F /* GenericCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCollectionViewCell.swift; sourceTree = "<group>"; };
 		ECC0DC62202B0E230036BD9F /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
+		ECC0DC64202B107B0036BD9F /* OverviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewCell.swift; sourceTree = "<group>"; };
+		ECC0DC67202B10E90036BD9F /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 		ECE630C42004FC0900FF987D /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE630C72004FC0900FF987D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECE630C92004FC0900FF987D /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -165,10 +167,10 @@
 				EC4692C1200E0D7F00D6EFF6 /* SearchView.swift */,
 				EC4692F6200E418A00D6EFF6 /* InputStackView.swift */,
 				EC416BB12016296F00F06010 /* ProfileNavigationView.swift */,
-				ECC0DC5D202B0DBB0036BD9F /* FeedCell.swift */,
 				EC1788952020B1E900B300B8 /* SectionCell.swift */,
-				EC1788912020908E00B300B8 /* ProfileCell.swift */,
+				ECC0DC5D202B0DBB0036BD9F /* FeedCell.swift */,
 				EC9B92AC202461260048EB60 /* HeaderCell.swift */,
+				ECC0DC64202B107B0036BD9F /* OverviewCell.swift */,
 				EC9B92AA20245EF50048EB60 /* ProjectCell.swift */,
 				ECA53D8620237E8F0075B5A4 /* AchievementCell.swift */,
 				EC9B92B02024761E0048EB60 /* PartnershipCell.swift */,
@@ -183,7 +185,7 @@
 				EC4692F8200E55D100D6EFF6 /* TextField.swift */,
 				EC4692C4200E120500D6EFF6 /* UIColor.swift */,
 				EC4692C7200E180500D6EFF6 /* UIFont.swift */,
-				ECC0DC5F202B0DD70036BD9F /* GenericCollectionView */,
+				ECC0DC5F202B0DD70036BD9F /* Generics */,
 				EC4692C9200E185400D6EFF6 /* Fonts */,
 			);
 			path = Toolbox;
@@ -241,13 +243,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		ECC0DC5F202B0DD70036BD9F /* GenericCollectionView */ = {
+		ECC0DC5F202B0DD70036BD9F /* Generics */ = {
 			isa = PBXGroup;
 			children = (
+				ECC0DC67202B10E90036BD9F /* GenericViewController.swift */,
 				EC245252202A0EB60021BFAC /* GenericCollectionViewController.swift */,
 				ECC0DC60202B0DF60036BD9F /* GenericCollectionViewCell.swift */,
 			);
-			path = GenericCollectionView;
+			path = Generics;
 			sourceTree = "<group>";
 		};
 		ECE630BB2004FC0900FF987D = {
@@ -289,8 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				ECE630C92004FC0900FF987D /* SearchController.swift */,
-				EC1788932020B01B00B300B8 /* SectionController.swift */,
 				EC4692FC200F474300D6EFF6 /* ProfileController.swift */,
+				EC1788932020B01B00B300B8 /* SectionController.swift */,
 				ECB9C8C6202361AF0098B5F2 /* FeedController.swift */,
 				ECB9C8CA202367BC0098B5F2 /* OverviewController.swift */,
 				EC9B92A620245D4A0048EB60 /* ProjectsController.swift */,
@@ -471,6 +474,7 @@
 				EC4692C5200E120500D6EFF6 /* UIColor.swift in Sources */,
 				EC9B92AF202475990048EB60 /* ParternshipsController.swift in Sources */,
 				EC469304200F5FFB00D6EFF6 /* Title.swift in Sources */,
+				ECC0DC65202B107B0036BD9F /* OverviewCell.swift in Sources */,
 				ECA53D8720237E8F0075B5A4 /* AchievementCell.swift in Sources */,
 				EC4692F7200E418A00D6EFF6 /* InputStackView.swift in Sources */,
 				EC46930D200F7E6D00D6EFF6 /* Auth.swift in Sources */,
@@ -486,7 +490,6 @@
 				ECC0DC61202B0DF60036BD9F /* GenericCollectionViewCell.swift in Sources */,
 				ECA53D8320237ADD0075B5A4 /* Achievement.swift in Sources */,
 				EC4692C8200E180500D6EFF6 /* UIFont.swift in Sources */,
-				EC1788922020908E00B300B8 /* ProfileCell.swift in Sources */,
 				ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */,
 				EC9B92A720245D4A0048EB60 /* ProjectsController.swift in Sources */,
 				EC4692FD200F474300D6EFF6 /* ProfileController.swift in Sources */,
@@ -495,6 +498,7 @@
 				ECA53D8520237C4E0075B5A4 /* AchievementsController.swift in Sources */,
 				EC245253202A0EB60021BFAC /* GenericCollectionViewController.swift in Sources */,
 				EC9B92A920245D970048EB60 /* Project.swift in Sources */,
+				ECC0DC68202B10E90036BD9F /* GenericViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

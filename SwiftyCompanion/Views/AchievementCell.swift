@@ -10,15 +10,15 @@ import UIKit
 import ToolboxLGNT
 
 class AchievementCell: GenericCollectionViewCell<Achievement> {
-    var achievement: Achievement? {
+    override var item: Achievement? {
         didSet {
-            guard let achievement = achievement else { return }
-            let attributed = NSMutableAttributedString(string: achievement.name, attributes: [
+            guard let item = item else { return }
+            let attributed = NSMutableAttributedString(string: item.name, attributes: [
                 .font: UIFont.futuraBook(ofSize: 16),
                 .foregroundColor: UIColor.black
             ])
             
-            let attributedDescription = NSAttributedString(string: "\n\(achievement.description)", attributes: [
+            let attributedDescription = NSAttributedString(string: "\n\(item.description)", attributes: [
                 .font: UIFont.futuraBold(ofSize: 12),
                 .foregroundColor: UIColor.swiftyGray
             ])
@@ -27,7 +27,7 @@ class AchievementCell: GenericCollectionViewCell<Achievement> {
             textView.attributedText = attributed
             
             
-            guard let url = URL(string: "https://api.intra.42.fr\(achievement.image)") else { return }
+            guard let url = URL(string: "https://api.intra.42.fr\(item.image)") else { return }
             let request = URLRequest(url: url)
             webView.loadRequest(request)
         }

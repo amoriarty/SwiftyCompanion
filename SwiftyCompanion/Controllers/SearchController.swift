@@ -9,7 +9,7 @@
 import UIKit
 import ToolboxLGNT
 
-class SearchController: UIViewController, InputStackDelegate {
+class SearchController: GenericViewController, InputStackDelegate {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     private let searchView = SearchView()
     private let profileController = ProfileController()
@@ -31,9 +31,6 @@ class SearchController: UIViewController, InputStackDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = ""
-        setupViews()
-        setupLayouts()
         searchView.delegate = self
         APIService.shared.getToken()
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -53,13 +50,13 @@ class SearchController: UIViewController, InputStackDelegate {
         }, completion: nil)
     }
     
-    private func setupViews() {
+    override func setupViews() {
         view.addSubview(background)
         view.addSubview(logo)
         view.addSubview(searchView)
     }
     
-    private func setupLayouts() {
+    override func setupLayouts() {
         _ = background.fill(view)
         _ = logo.constraint(dimension: .width, constant: 125)
         _ = logo.constraint(.height, to: logo, .width)

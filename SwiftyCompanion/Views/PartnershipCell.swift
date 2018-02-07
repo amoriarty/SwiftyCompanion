@@ -9,11 +9,11 @@
 import UIKit
 
 class PartnershipCell: GenericCollectionViewCell<Partnership> {
-    var partnership: Partnership? {
-        didSet { partnershipName.text = partnership?.name }
+    override var item: Partnership? {
+        didSet { label.text = item?.name }
     }
     
-    private let partnershipName: UILabel = {
+    private let label: UILabel = {
         let label = UILabel()
         label.font = .futuraBold(ofSize: 16)
         label.textColor = .black
@@ -22,11 +22,11 @@ class PartnershipCell: GenericCollectionViewCell<Partnership> {
     
     override func setupViews() {
         super.setupViews()
-        addSubview(partnershipName)
+        addSubview(label)
     }
     
     override func setupLayouts() {
         super.setupLayouts()
-        _ = partnershipName.fill(self, constant: 10)
+        _ = label.fill(self, constant: 10)
     }
 }

@@ -8,7 +8,9 @@
 
 import UIKit
 
-class SkillsController: GenericCollectionViewController<SkillCell, Skill> {
+class SkillsController: GenericCollectionViewController<SkillCell, Skill>, FeedDelegate {
+    var user: User?
+    
     override func setupCollectionView() {
         super.setupCollectionView()
         collectionView?.backgroundColor = .blue

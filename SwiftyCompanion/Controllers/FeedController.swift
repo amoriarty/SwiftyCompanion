@@ -8,13 +8,20 @@
 
 import UIKit
 
-
+protocol FeedDelegate: UICollectionViewDelegate, UICollectionViewDataSource {
+    var user: User? { get set }
+}
 
 class FeedController: GenericCollectionViewController<FeedCell, UICollectionViewController>, SectionDelegate {
     private var indexPath = IndexPath(item: 0, section: 0)
     weak var sectionController: SectionController?
+    private let controllers = [OverviewController(), ProjectsController(), AchievementsController(), PartnershipsController(), SkillsController()]
     override var items: [[UICollectionViewController]]? {
-        return [[OverviewController(), ProjectsController(), AchievementsController(), ParternshipsController(), SkillsController()]]
+        return [controllers]
+    }
+    
+    var user: User? {
+        didSet { controllers.forEach { ($0 as? FeedDelegate)?.user = user } }
     }
     
     override func setupViews() {
@@ -48,35 +55,3 @@ class FeedController: GenericCollectionViewController<FeedCell, UICollectionView
         collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
 }
-
-//class FeedController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-//    private var reuseId = "FeedCell"
-//    var user: User?
-//    weak var collectionView: UICollectionView? {
-//        didSet {
-//            setupCollectionView()
-//            collectionView?.delegate = self
-//            collectionView?.dataSource = self
-//            collectionView?.reloadData()
-//        }
-//    }
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        view.backgroundColor = .clear
-//    }
-//
-//    func setupCollectionView() {
-//        collectionView?.backgroundColor = .clear
-//        collectionView?.register(BaseCell.self, forCellWithReuseIdentifier: reuseId)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 0
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        return collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath)
-//    }
-//}
-
