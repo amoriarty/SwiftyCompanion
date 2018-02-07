@@ -14,10 +14,10 @@ class GenericCollectionViewController<T: GenericCollectionViewCell<U>, U: Any>: 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.register(T.self, forCellWithReuseIdentifier: reuseId)
         setupViews()
         setupLayouts()
         setupCollectionView()
+        collectionView?.register(T.self, forCellWithReuseIdentifier: reuseId)
     }
     
     func setupViews() {}
@@ -54,6 +54,10 @@ class GenericCollectionViewController<T: GenericCollectionViewCell<U>, U: Any>: 
         
         cell.item = items?[indexPath.section][indexPath.item]
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .zero
     }
     
     init() { super.init(collectionViewLayout: UICollectionViewFlowLayout()) }

@@ -9,8 +9,8 @@
 import UIKit
 
 class HeaderCell: GenericCollectionViewCell<String> {
-    var section: String? {
-        didSet { label.text = section }
+    override var item: String? {
+        didSet { label.text = item }
     }
     
     private let label: UILabel = {
