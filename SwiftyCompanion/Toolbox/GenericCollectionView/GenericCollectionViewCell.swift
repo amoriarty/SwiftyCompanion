@@ -1,14 +1,16 @@
 //
-//  BaseCell.swift
+//  GenericCollectionViewCell.swift
 //  SwiftyCompanion
 //
-//  Created by Émilie Legent on 01/02/2018.
+//  Created by Émilie Legent on 07/02/2018.
 //  Copyright © 2018 Alexandre Legent. All rights reserved.
 //
 
 import UIKit
 
-class BaseCell: UICollectionViewCell {
+class GenericCollectionViewCell<T: Any>: UICollectionViewCell {
+    var item: T?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()

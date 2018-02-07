@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeaderCell: BaseCell {
+class HeaderCell: GenericCollectionViewCell<String> {
     var section: String? {
         didSet { label.text = section }
     }

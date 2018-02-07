@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProjectCell: BaseCell {
+class ProjectCell: GenericCollectionViewCell<ProjectUser> {
     var projectUser: ProjectUser? {
         didSet {
             projectName.text = projectUser?.project.name

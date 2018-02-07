@@ -36,26 +36,21 @@ class SectionController: GenericCollectionViewController<SectionCell, String> {
         return layer
     }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
-        setupLayouts()
-        setupCollectionView()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         gradientLayer.frame = gradientBar.bounds
         collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
     }
     
-    private func setupViews() {
+    override func setupViews() {
+        super.setupViews()
         view.backgroundColor = .clear
         view.addSubview(gradientBar)
         gradientBar.layer.addSublayer(gradientLayer)
     }
     
-    private func setupLayouts() {
+    override func setupLayouts() {
+        super.setupLayouts()
         let cellSize = sizeForItem(at: indexPath)
         _ = gradientBar.constraint(.bottom, to: view)
         _ = gradientBar.constraint(dimension: .height, constant: 2)
@@ -63,7 +58,8 @@ class SectionController: GenericCollectionViewController<SectionCell, String> {
         sizeConstraint = gradientBar.constraint(dimension: .width, constant: cellSize.width)
     }
     
-    private func setupCollectionView() {
+    override func setupCollectionView() {
+        super.setupCollectionView()
         guard let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         layout.scrollDirection = .horizontal
         collectionView?.backgroundColor = .clear

@@ -8,23 +8,6 @@
 
 import UIKit
 
-class GenericCollectionViewCell<T: Any>: UICollectionViewCell {
-    var item: T?
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-        setupLayouts()
-    }
-    
-    func setupViews() {}
-    func setupLayouts() {}
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
 class GenericCollectionViewController<T: GenericCollectionViewCell<U>, U: Any>: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     private let reuseId = "ReuseID"
     var items: [[U]]? { return nil }
@@ -32,6 +15,16 @@ class GenericCollectionViewController<T: GenericCollectionViewCell<U>, U: Any>: 
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.register(T.self, forCellWithReuseIdentifier: reuseId)
+        setupViews()
+        setupLayouts()
+        setupCollectionView()
+    }
+    
+    func setupViews() {}
+    func setupLayouts() {}
+    
+    func setupCollectionView() {
+        collectionView?.backgroundColor = .clear
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

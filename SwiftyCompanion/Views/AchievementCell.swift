@@ -9,7 +9,7 @@
 import UIKit
 import ToolboxLGNT
 
-class AchievementCell: BaseCell {
+class AchievementCell: GenericCollectionViewCell<Achievement> {
     var achievement: Achievement? {
         didSet {
             guard let achievement = achievement else { return }

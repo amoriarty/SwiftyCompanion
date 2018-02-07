@@ -9,31 +9,14 @@
 import UIKit
 import ToolboxLGNT
 
-class ProfileController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SectionDelegate {
+class ProfileController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     private let navigationView = ProfileNavigationView()
-    private let reuseId = "ProfileCell"
-    private var indexPath = IndexPath(item: 0, section: 0)
+    private let sectionController = SectionController()
+    private let feedController = FeedController()
     var user: User? {
-        didSet {
-            navigationView.user = user
-            collectionView.reloadData()
-        }
+        didSet { navigationView.user = user }
     }
-    
-    private let feedControllers: [FeedController] = [
-        OverviewController(),
-        ProjectsController(),
-        AchievementsController(),
-        ParternshipsController(),
-        FeedController()
-    ]
-    
-    private lazy var sectionController: SectionController = {
-        let controller = SectionController()
-        controller.delegate = self
-        return controller
-    }()
     
     private let background: UIImageView = {
         let image = UIImage(named: "LoginBackground")
@@ -43,23 +26,12 @@ class ProfileController: UIViewController, UICollectionViewDelegate, UICollectio
         return view
     }()
     
-    private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        layout.scrollDirection = .horizontal
-        collectionView.backgroundColor = .clear
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.isPagingEnabled = true
-        collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: self.reuseId)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        return collectionView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationView.controller = self
+        sectionController.delegate = feedController
+        feedController.sectionController = sectionController
         setupViews()
         setupLayouts()
     }
@@ -73,7 +45,7 @@ class ProfileController: UIViewController, UICollectionViewDelegate, UICollectio
         view.addSubview(background)
         view.addSubview(navigationView)
         view.addSubview(sectionController.view)
-        view.addSubview(collectionView)
+        view.addSubview(feedController.view)
     }
     
     private func setupLayouts() {
@@ -91,45 +63,25 @@ class ProfileController: UIViewController, UICollectionViewDelegate, UICollectio
         _ = sectionController.view.constraint(.top, to: navigationView, .bottom)
         _ = sectionController.view.constraint(dimension: .height, constant: 25)
         
-        _ = collectionView.fill(.horizontaly, view.safeAreaLayoutGuide)
-        _ = collectionView.constraint(.top, to: sectionController.view, .bottom)
-        _ = collectionView.constraint(.bottom, to: view)
+        _ = feedController.view.fill(.horizontaly, view.safeAreaLayoutGuide)
+        _ = feedController.view.constraint(.top, to: sectionController.view, .bottom)
+        _ = feedController.view.constraint(.bottom, to: view)
     }
     
     func handleBack() {
         navigationController?.popViewController(animated: true)
     }
     
-    func didSelectSection(at indexPath: IndexPath) {
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-    }
+//    func didSelectSection(at indexPath: IndexPath) {
+//        feedController.collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//    }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let item = Int(scrollView.contentOffset.x / scrollView.frame.width)
-        
-        if item != indexPath.item {
-            indexPath = IndexPath(item: item, section: 0)
-            sectionController.scroll(at: indexPath)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return feedControllers.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as! ProfileCell
-        let controller = feedControllers[indexPath.item]
-        controller.user = user
-        controller.collectionView = cell.collectionView
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView.frame.size
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let item = Int(scrollView.contentOffset.x / scrollView.frame.width)
+//        
+//        if item != indexPath.item {
+//            indexPath = IndexPath(item: item, section: 0)
+//            sectionController.scroll(at: indexPath)
+//        }
+//    }
 }

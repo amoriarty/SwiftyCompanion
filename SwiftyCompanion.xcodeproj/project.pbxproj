@@ -13,7 +13,6 @@
 		EC1788962020B1E900B300B8 /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1788952020B1E900B300B8 /* SectionCell.swift */; };
 		EC245253202A0EB60021BFAC /* GenericCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC245252202A0EB60021BFAC /* GenericCollectionViewController.swift */; };
 		EC416BB22016296F00F06010 /* ProfileNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC416BB12016296F00F06010 /* ProfileNavigationView.swift */; };
-		EC434327202331AD003DC3FB /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC434326202331AD003DC3FB /* BaseCell.swift */; };
 		EC4692C2200E0D7F00D6EFF6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692C1200E0D7F00D6EFF6 /* SearchView.swift */; };
 		EC4692C5200E120500D6EFF6 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692C4200E120500D6EFF6 /* UIColor.swift */; };
 		EC4692C8200E180500D6EFF6 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4692C7200E180500D6EFF6 /* UIFont.swift */; };
@@ -61,6 +60,10 @@
 		ECA53D8720237E8F0075B5A4 /* AchievementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA53D8620237E8F0075B5A4 /* AchievementCell.swift */; };
 		ECB9C8C7202361AF0098B5F2 /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB9C8C6202361AF0098B5F2 /* FeedController.swift */; };
 		ECB9C8CB202367BC0098B5F2 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB9C8CA202367BC0098B5F2 /* OverviewController.swift */; };
+		ECC0DC5C202B0C9E0036BD9F /* SkillsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DC5B202B0C9E0036BD9F /* SkillsController.swift */; };
+		ECC0DC5E202B0DBB0036BD9F /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DC5D202B0DBB0036BD9F /* FeedCell.swift */; };
+		ECC0DC61202B0DF60036BD9F /* GenericCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DC60202B0DF60036BD9F /* GenericCollectionViewCell.swift */; };
+		ECC0DC63202B0E230036BD9F /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DC62202B0E230036BD9F /* SkillCell.swift */; };
 		ECE630C82004FC0900FF987D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C72004FC0900FF987D /* AppDelegate.swift */; };
 		ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE630C92004FC0900FF987D /* SearchController.swift */; };
 		ECE630CF2004FC0900FF987D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE630CE2004FC0900FF987D /* Assets.xcassets */; };
@@ -76,7 +79,6 @@
 		EC1788952020B1E900B300B8 /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
 		EC245252202A0EB60021BFAC /* GenericCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCollectionViewController.swift; sourceTree = "<group>"; };
 		EC416BB12016296F00F06010 /* ProfileNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNavigationView.swift; sourceTree = "<group>"; };
-		EC434326202331AD003DC3FB /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		EC4692C1200E0D7F00D6EFF6 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		EC4692C4200E120500D6EFF6 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		EC4692C7200E180500D6EFF6 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
@@ -124,6 +126,10 @@
 		ECA53D8620237E8F0075B5A4 /* AchievementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementCell.swift; sourceTree = "<group>"; };
 		ECB9C8C6202361AF0098B5F2 /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		ECB9C8CA202367BC0098B5F2 /* OverviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewController.swift; sourceTree = "<group>"; };
+		ECC0DC5B202B0C9E0036BD9F /* SkillsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsController.swift; sourceTree = "<group>"; };
+		ECC0DC5D202B0DBB0036BD9F /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		ECC0DC60202B0DF60036BD9F /* GenericCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericCollectionViewCell.swift; sourceTree = "<group>"; };
+		ECC0DC62202B0E230036BD9F /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
 		ECE630C42004FC0900FF987D /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE630C72004FC0900FF987D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECE630C92004FC0900FF987D /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -159,13 +165,14 @@
 				EC4692C1200E0D7F00D6EFF6 /* SearchView.swift */,
 				EC4692F6200E418A00D6EFF6 /* InputStackView.swift */,
 				EC416BB12016296F00F06010 /* ProfileNavigationView.swift */,
-				EC434326202331AD003DC3FB /* BaseCell.swift */,
+				ECC0DC5D202B0DBB0036BD9F /* FeedCell.swift */,
 				EC1788952020B1E900B300B8 /* SectionCell.swift */,
 				EC1788912020908E00B300B8 /* ProfileCell.swift */,
 				EC9B92AC202461260048EB60 /* HeaderCell.swift */,
 				EC9B92AA20245EF50048EB60 /* ProjectCell.swift */,
 				ECA53D8620237E8F0075B5A4 /* AchievementCell.swift */,
 				EC9B92B02024761E0048EB60 /* PartnershipCell.swift */,
+				ECC0DC62202B0E230036BD9F /* SkillCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,6 +183,7 @@
 				EC4692F8200E55D100D6EFF6 /* TextField.swift */,
 				EC4692C4200E120500D6EFF6 /* UIColor.swift */,
 				EC4692C7200E180500D6EFF6 /* UIFont.swift */,
+				ECC0DC5F202B0DD70036BD9F /* GenericCollectionView */,
 				EC4692C9200E185400D6EFF6 /* Fonts */,
 			);
 			path = Toolbox;
@@ -233,6 +241,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		ECC0DC5F202B0DD70036BD9F /* GenericCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				EC245252202A0EB60021BFAC /* GenericCollectionViewController.swift */,
+				ECC0DC60202B0DF60036BD9F /* GenericCollectionViewCell.swift */,
+			);
+			path = GenericCollectionView;
+			sourceTree = "<group>";
+		};
 		ECE630BB2004FC0900FF987D = {
 			isa = PBXGroup;
 			children = (
@@ -271,7 +288,6 @@
 		ECE630D92005015400FF987D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EC245252202A0EB60021BFAC /* GenericCollectionViewController.swift */,
 				ECE630C92004FC0900FF987D /* SearchController.swift */,
 				EC1788932020B01B00B300B8 /* SectionController.swift */,
 				EC4692FC200F474300D6EFF6 /* ProfileController.swift */,
@@ -280,6 +296,7 @@
 				EC9B92A620245D4A0048EB60 /* ProjectsController.swift */,
 				ECA53D8420237C4E0075B5A4 /* AchievementsController.swift */,
 				EC9B92AE202475990048EB60 /* ParternshipsController.swift */,
+				ECC0DC5B202B0C9E0036BD9F /* SkillsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -443,12 +460,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC469306200F60E300D6EFF6 /* Cursus.swift in Sources */,
+				ECC0DC63202B0E230036BD9F /* SkillCell.swift in Sources */,
 				EC1788942020B01B00B300B8 /* SectionController.swift in Sources */,
 				ECE630CA2004FC0900FF987D /* SearchController.swift in Sources */,
+				ECC0DC5C202B0C9E0036BD9F /* SkillsController.swift in Sources */,
 				EC9B92AB20245EF50048EB60 /* ProjectCell.swift in Sources */,
 				EC84059820208A5500DBA3F3 /* Configurations.swift in Sources */,
 				EC9B92B12024761E0048EB60 /* PartnershipCell.swift in Sources */,
-				EC434327202331AD003DC3FB /* BaseCell.swift in Sources */,
 				EC416BB22016296F00F06010 /* ProfileNavigationView.swift in Sources */,
 				EC4692C5200E120500D6EFF6 /* UIColor.swift in Sources */,
 				EC9B92AF202475990048EB60 /* ParternshipsController.swift in Sources */,
@@ -462,8 +480,10 @@
 				ECB9C8C7202361AF0098B5F2 /* FeedController.swift in Sources */,
 				EC46930B200F7A4400D6EFF6 /* APIService.swift in Sources */,
 				EC1788962020B1E900B300B8 /* SectionCell.swift in Sources */,
+				ECC0DC5E202B0DBB0036BD9F /* FeedCell.swift in Sources */,
 				ECB9C8CB202367BC0098B5F2 /* OverviewController.swift in Sources */,
 				EC4692C2200E0D7F00D6EFF6 /* SearchView.swift in Sources */,
+				ECC0DC61202B0DF60036BD9F /* GenericCollectionViewCell.swift in Sources */,
 				ECA53D8320237ADD0075B5A4 /* Achievement.swift in Sources */,
 				EC4692C8200E180500D6EFF6 /* UIFont.swift in Sources */,
 				EC1788922020908E00B300B8 /* ProfileCell.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PartnershipCell: BaseCell {
+class PartnershipCell: GenericCollectionViewCell<Partnership> {
     var partnership: Partnership? {
         didSet { partnershipName.text = partnership?.name }
     }
