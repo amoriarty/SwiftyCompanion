@@ -1,6 +1,9 @@
 # Swifty Companion
 
 ## TODO
+* Sometime have pool days into projects (only execpting parent project).
+* Make cell phone callable
+* Make mail useable as well.
 * Be able to change cursus.
 * Handle errors if token authentication failed.
 * Handle errors when requested login failed.

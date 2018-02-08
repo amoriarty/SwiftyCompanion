@@ -9,7 +9,7 @@
 import UIKit
 import ToolboxLGNT
 
-class ProfileNavigationView: UIView {
+class ProfileNavigationView: GenericView {
     var controller: ProfileController?
     var user: User? {
         didSet {
@@ -65,27 +65,18 @@ class ProfileNavigationView: UIView {
         return label
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override func setupViews() {
         backgroundColor = .clear
-        setupViews()
-        setupLayouts()
-    }
-    
-    private func setupViews() {
         addSubview(backButton)
         addSubview(profileImage)
         addSubview(profileText)
     }
     
-    private func setupLayouts() {
+    override func setupLayouts() {
         _ = backButton.fill(.verticaly, self, constant: 5)
         _ = backButton.constraint(.leading, to: self, constant: 10)
         _ = backButton.constraint(dimension: .width, constant: 34)
-        
-        
         _ = profileText.center(self)
-        
         _ = profileImage.center(.verticaly, self)
         _ = profileImage.constraint(.trailing, to: profileText, .leading, constant: 5)
         _ = profileImage.constraint(dimension: .width, constant: 34)
@@ -94,9 +85,5 @@ class ProfileNavigationView: UIView {
     
     @objc func handleBack() {
         controller?.handleBack()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

@@ -12,7 +12,7 @@ protocol InputStackDelegate: class {
     func handleSearch(_ login: String)
 }
 
-class InputStackView: UIView, UITextFieldDelegate {
+class InputStackView: GenericView, UITextFieldDelegate {
     private let textView = UIView()
     private let buttonView =  UIView()
     weak var delegate: InputStackDelegate?
@@ -49,13 +49,7 @@ class InputStackView: UIView, UITextFieldDelegate {
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-        setupLayouts()
-    }
-    
-    private func setupViews() {
+    override func setupViews() {
         addSubview(stackView)
         textView.addSubview(inputText)
         buttonView.addSubview(searchButton)
@@ -63,7 +57,7 @@ class InputStackView: UIView, UITextFieldDelegate {
         stackView.addArrangedSubview(buttonView)
     }
     
-    private func setupLayouts() {
+    override func setupLayouts() {
         _ = stackView.fill(self)
         _ = inputText.fill(.horizontaly, textView, constant: 20)
         _ = inputText.center(.verticaly, textView)
@@ -80,9 +74,5 @@ class InputStackView: UIView, UITextFieldDelegate {
         textField.resignFirstResponder()
         handleSearch()
         return true
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

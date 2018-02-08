@@ -17,36 +17,22 @@ class SectionController: GenericCollectionViewController<SectionCell, String> {
     private var originConstraint: NSLayoutConstraint?
     private var sizeConstraint: NSLayoutConstraint?
     private var indexPath = IndexPath(item: 0, section: 0)
+    private let gradientBar = GradientBar()
     weak var delegate: SectionDelegate?
     override var items: [[String]]? {
         return [["OVERVIEW", "PROJECTS", "ACHIEVMENTS", "PARTERNSHIP", "SKILLS"]]
     }
     
-    private let gradientBar: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
-    }()
-    
-    private let gradientLayer: CAGradientLayer = {
-        let layer = CAGradientLayer()
-        layer.startPoint = CGPoint(x: 0, y: 0.5)
-        layer.endPoint = CGPoint(x: 1, y: 0.5)
-        layer.colors = [UIColor.swiftyLightBlue.cgColor, UIColor.swiftyGreen.cgColor]
-        return layer
-    }()
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        gradientLayer.frame = gradientBar.bounds
         collectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+        gradientBar.resize()
     }
     
     override func setupViews() {
         super.setupViews()
         view.backgroundColor = .clear
         view.addSubview(gradientBar)
-        gradientBar.layer.addSublayer(gradientLayer)
     }
     
     override func setupLayouts() {
@@ -89,7 +75,7 @@ class SectionController: GenericCollectionViewController<SectionCell, String> {
             self.originConstraint?.constant = cell.frame.origin.x - collectionView.contentOffset.x
             self.sizeConstraint?.constant = cell.frame.width
             self.view.layoutIfNeeded()
-            self.gradientLayer.frame = self.gradientBar.bounds
+            self.gradientBar.resize()
         }, completion: nil)
     }
     

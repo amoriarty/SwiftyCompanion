@@ -38,16 +38,7 @@ class SearchController: GenericViewController, InputStackDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        searchView.setupGradientLayer()
-        logo.alpha = view.frame.width > view.frame.height ? 0 : 1
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        
-        coordinator.animate(alongsideTransition: { _ in
-            self.logo.alpha = size.width > size.height ? 0 : 1
-        }, completion: nil)
+        searchView.gradientBar.resize()
     }
     
     override func setupViews() {
@@ -57,16 +48,14 @@ class SearchController: GenericViewController, InputStackDelegate {
     }
     
     override func setupLayouts() {
+        var width = view.frame.width < view.frame.height ? view.frame.width : view.frame.height
+        width = width > 500 ? 500 : width
+        
         _ = background.fill(view)
         _ = logo.constraint(dimension: .width, constant: 125)
         _ = logo.constraint(.height, to: logo, .width)
         _ = logo.center(.horizontaly, view)
         _ = logo.center(.verticaly, view, multiplier: 0.5)
-        
-        
-        var width = view.frame.width < view.frame.height ? view.frame.width : view.frame.height
-        width = width > 500 ? 500 : width
-        
         _ = searchView.center(view.safeAreaLayoutGuide)
         _ = searchView.constraint(dimension: .width, constant: width - 20)
         _ = searchView.constraint(.height, to: searchView, .width, multiplier: 10 / 16)

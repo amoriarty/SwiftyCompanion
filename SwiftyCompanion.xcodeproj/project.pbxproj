@@ -70,6 +70,9 @@
 		ECE630CF2004FC0900FF987D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE630CE2004FC0900FF987D /* Assets.xcassets */; };
 		ECE630D22004FC0900FF987D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECE630D02004FC0900FF987D /* LaunchScreen.storyboard */; };
 		ECF4F291202B55070032C59A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4F290202B55070032C59A /* UserService.swift */; };
+		ECF4F295202C45FC0032C59A /* GenericView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4F294202C45FC0032C59A /* GenericView.swift */; };
+		ECF4F297202C48200032C59A /* GradientBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4F296202C48200032C59A /* GradientBar.swift */; };
+		ECF4F299202C564D0032C59A /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4F298202C564D0032C59A /* ProgressBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +143,9 @@
 		ECE630D12004FC0900FF987D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECE630D32004FC0900FF987D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECF4F290202B55070032C59A /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		ECF4F294202C45FC0032C59A /* GenericView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericView.swift; sourceTree = "<group>"; };
+		ECF4F296202C48200032C59A /* GradientBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBar.swift; sourceTree = "<group>"; };
+		ECF4F298202C564D0032C59A /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +172,8 @@
 		EC4692C0200E0D5C00D6EFF6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				ECF4F296202C48200032C59A /* GradientBar.swift */,
+				ECF4F298202C564D0032C59A /* ProgressBar.swift */,
 				EC4692C1200E0D7F00D6EFF6 /* SearchView.swift */,
 				EC4692F6200E418A00D6EFF6 /* InputStackView.swift */,
 				EC416BB12016296F00F06010 /* ProfileNavigationView.swift */,
@@ -249,6 +257,7 @@
 		ECC0DC5F202B0DD70036BD9F /* Generics */ = {
 			isa = PBXGroup;
 			children = (
+				ECF4F294202C45FC0032C59A /* GenericView.swift */,
 				ECC0DC67202B10E90036BD9F /* GenericViewController.swift */,
 				EC245252202A0EB60021BFAC /* GenericCollectionViewController.swift */,
 				ECC0DC60202B0DF60036BD9F /* GenericCollectionViewCell.swift */,
@@ -478,6 +487,7 @@
 				EC9B92AF202475990048EB60 /* ParternshipsController.swift in Sources */,
 				EC469304200F5FFB00D6EFF6 /* Title.swift in Sources */,
 				ECC0DC65202B107B0036BD9F /* OverviewCell.swift in Sources */,
+				ECF4F297202C48200032C59A /* GradientBar.swift in Sources */,
 				ECA53D8720237E8F0075B5A4 /* AchievementCell.swift in Sources */,
 				EC4692F7200E418A00D6EFF6 /* InputStackView.swift in Sources */,
 				EC46930D200F7E6D00D6EFF6 /* Auth.swift in Sources */,
@@ -497,9 +507,11 @@
 				EC9B92A720245D4A0048EB60 /* ProjectsController.swift in Sources */,
 				EC4692FD200F474300D6EFF6 /* ProfileController.swift in Sources */,
 				EC9B92B32024768E0048EB60 /* Partnership.swift in Sources */,
+				ECF4F299202C564D0032C59A /* ProgressBar.swift in Sources */,
 				ECF4F291202B55070032C59A /* UserService.swift in Sources */,
 				EC9B92AD202461260048EB60 /* HeaderCell.swift in Sources */,
 				ECA53D8520237C4E0075B5A4 /* AchievementsController.swift in Sources */,
+				ECF4F295202C45FC0032C59A /* GenericView.swift in Sources */,
 				EC245253202A0EB60021BFAC /* GenericCollectionViewController.swift in Sources */,
 				EC9B92A920245D970048EB60 /* Project.swift in Sources */,
 				ECC0DC68202B10E90036BD9F /* GenericViewController.swift in Sources */,
