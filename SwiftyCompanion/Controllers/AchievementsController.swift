@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ToolboxLGNT
 
 class AchievementsController: GenericCollectionViewController<AchievementCell, Achievement>, UserServiceDelegate {
     override var items: [[Achievement]]? {

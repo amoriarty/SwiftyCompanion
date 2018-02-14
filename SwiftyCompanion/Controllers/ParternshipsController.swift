@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ToolboxLGNT
 
 class PartnershipsController: GenericCollectionViewController<PartnershipCell, Partnership>, UserServiceDelegate {
     override var items: [[Partnership]]? {

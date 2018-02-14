@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ToolboxLGNT
 
 class OverviewController: GenericCollectionViewController<OverviewCell, User>, UserServiceDelegate {
     override var items: [[User]]? {

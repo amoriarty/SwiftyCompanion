@@ -6,7 +6,7 @@
 //  Copyright © 2018 Alexandre Legent. All rights reserved.
 //
 
-import UIKit
+import ToolboxLGNT
 
 class SearchView: GenericView {
     private let inputStack = InputStackView()

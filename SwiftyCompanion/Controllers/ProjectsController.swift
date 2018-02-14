@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ToolboxLGNT
 
 class ProjectsController: GenericCollectionViewController<ProjectCell, ProjectUser>, UserServiceDelegate {
     private let headerId = "HeaderID"

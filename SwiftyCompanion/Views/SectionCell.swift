@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ToolboxLGNT
 
 class SectionCell: GenericCollectionViewCell<String> {
     override var item: String? {

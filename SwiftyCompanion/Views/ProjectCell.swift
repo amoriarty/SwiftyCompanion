@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ToolboxLGNT
 
 class ProjectCell: GenericCollectionViewCell<ProjectUser> {
     override var item: ProjectUser? {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ToolboxLGNT
 
 class PartnershipCell: GenericCollectionViewCell<Partnership> {
     override var item: Partnership? {

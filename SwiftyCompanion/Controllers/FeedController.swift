@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ToolboxLGNT
 
 class FeedController: GenericCollectionViewController<FeedCell, UICollectionViewController>, SectionDelegate {
     private var indexPath = IndexPath(item: 0, section: 0)

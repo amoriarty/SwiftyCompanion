@@ -6,7 +6,7 @@
 //  Copyright © 2018 Alexandre Legent. All rights reserved.
 //
 
-import UIKit
+import ToolboxLGNT
 
 protocol InputStackDelegate: class {
     func handleSearch(_ login: String)

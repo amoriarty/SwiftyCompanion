@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ToolboxLGNT
 
 class FeedCell: GenericCollectionViewCell<UICollectionViewController> {
     override var item: UICollectionViewController? {

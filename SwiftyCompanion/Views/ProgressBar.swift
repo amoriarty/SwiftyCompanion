@@ -6,7 +6,7 @@
 //  Copyright © 2018 Alexandre Legent. All rights reserved.
 //
 
-import UIKit
+import ToolboxLGNT
 
 class ProgressBar: GenericView {
     private let progress = UIView()
