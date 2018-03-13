@@ -30,8 +30,16 @@ class APIService {
     }
     
     func getUser(_ login: String, completion: @escaping (User?) -> Void) {
-        guard let token = auth?.token else { return }
-        guard let url = URL(string: "\(apiurl)/v2/users/\(login)") else { return }
+        guard let token = auth?.token else {
+            completion(nil)
+            return
+        }
+        
+        guard let url = URL(string: "\(apiurl)/v2/users/\(login)") else {
+            completion(nil)
+            return
+        }
+        
         var request = URLRequest(url: url)
         
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
