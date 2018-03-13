@@ -45,6 +45,7 @@
 		EC469306200F60E300D6EFF6 /* Cursus.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC469305200F60E300D6EFF6 /* Cursus.swift */; };
 		EC46930B200F7A4400D6EFF6 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC46930A200F7A4400D6EFF6 /* APIService.swift */; };
 		EC46930D200F7E6D00D6EFF6 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC46930C200F7E6D00D6EFF6 /* Auth.swift */; };
+		EC83623120581D8E009D636D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = EC83623020581D8D009D636D /* README.md */; };
 		EC84059820208A5500DBA3F3 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84059720208A5500DBA3F3 /* Configurations.swift */; };
 		EC9AC6122057F18F00E05094 /* StackOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9AC6112057F18F00E05094 /* StackOverview.swift */; };
 		EC9B92A720245D4A0048EB60 /* ProjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9B92A620245D4A0048EB60 /* ProjectsController.swift */; };
@@ -113,6 +114,7 @@
 		EC469305200F60E300D6EFF6 /* Cursus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursus.swift; sourceTree = "<group>"; };
 		EC46930A200F7A4400D6EFF6 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		EC46930C200F7E6D00D6EFF6 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		EC83623020581D8D009D636D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EC84059720208A5500DBA3F3 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		EC9AC6112057F18F00E05094 /* StackOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverview.swift; sourceTree = "<group>"; };
 		EC9B92A620245D4A0048EB60 /* ProjectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		ECE630BB2004FC0900FF987D = {
 			isa = PBXGroup;
 			children = (
+				EC83623020581D8D009D636D /* README.md */,
 				ECE630C62004FC0900FF987D /* SwiftyCompanion */,
 				ECE630C52004FC0900FF987D /* Products */,
 				C038D8662C173E499B80C7C5 /* Pods */,
@@ -381,6 +384,7 @@
 				EC4692F4200E188E00D6EFF6 /* FuturaPTDemi.otf in Resources */,
 				EC4692E5200E188E00D6EFF6 /* FuturaPTLightOblique.otf in Resources */,
 				EC4692E3200E188E00D6EFF6 /* FuturaPTBook.otf in Resources */,
+				EC83623120581D8E009D636D /* README.md in Resources */,
 				EC4692ED200E188E00D6EFF6 /* FuturaPTCondExtraBoldOblique.otf in Resources */,
 				EC4692F1200E188E00D6EFF6 /* FuturaPTBoldOblique.otf in Resources */,
 				EC4692EB200E188E00D6EFF6 /* FuturaPTDemiOblique.otf in Resources */,
