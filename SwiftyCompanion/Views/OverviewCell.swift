@@ -32,6 +32,10 @@ class OverviewCell: GenericCollectionViewCell<User> {
         }
     }
     
+    weak var delegate: StackOverviewDelegate? {
+        didSet { stackOverview.delegate = delegate }
+    }
+    
     // MARK:- Views
     private let profileImage: UIImageView = {
         let view = UIImageView()

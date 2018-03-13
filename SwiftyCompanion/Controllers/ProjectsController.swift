@@ -15,9 +15,9 @@ class ProjectsController: GenericCollectionViewController<ProjectCell, ProjectUs
     
     override var items: [[ProjectUser]]? {
         guard let user = UserService.shared.user else { return nil }
-        let projects = user.projectsUser
-        let ungoing = projects.filter { $0.status == "in_progress" && $0.project.parent == nil }
-        let finished = projects.filter { $0.status == "finished" && $0.project.parent == nil }
+        let projects = user.projectsUser.filter { $0.project.parent == nil }
+        let ungoing = projects.filter { $0.status == "in_progress" }
+        let finished = projects.filter { $0.status == "finished" }
         return [ungoing.reversed(), finished.reversed()]
     }
     

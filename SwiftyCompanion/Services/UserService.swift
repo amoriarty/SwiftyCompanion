@@ -14,8 +14,10 @@ protocol UserServiceDelegate {
 
 class UserService {
     static let shared = UserService()
-    private var cursus = Cursus(id: 1, name: "42", slug: "42")
     private var delegates = [UserServiceDelegate]()
+    var cursus = Cursus(id: 1, name: "42", slug: "42") {
+        didSet { delegates.forEach { $0.userDidChange() } }
+    }
     
     var user: User? {
         didSet {
