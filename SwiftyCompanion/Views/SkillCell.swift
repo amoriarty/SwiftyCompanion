@@ -47,14 +47,5 @@ class SkillCell: GenericCollectionViewCell<Skill> {
         _ = levelProgress.constraint(dimension: .height, constant: 5)
         _ = levelProgress.constraint(.width, to: self, multiplier: 0.4)
         _ = levelProgress.constraint(.trailing, to: self, constant: 10)
-        
-//        _ = level.center(.verticaly, self)
-//        _ = level.constraint(dimension: .height, constant: 5)
-//        _ = level.constraint(.width, to: self, multiplier: 0.40)
-//        _ = level.constraint(.trailing, to: self, constant: 10)
-//
-//        _ = progress.constraint(.height, to: level)
-//        _ = progress.constraint(.leading, to: level)
-//        _ = progress.constraint(.top, to: level)
     }
 }

@@ -10,9 +10,9 @@ import Foundation
 import ToolboxLGNT
 
 class APIService {
+    static let shared = APIService()
     private let apiurl = "https://api.intra.42.fr"
     private var auth: Auth?
-    static let shared = APIService()
     
     func getToken() {
         guard let url = URL(string: "\(apiurl)/oauth/token") else { return }

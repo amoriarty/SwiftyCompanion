@@ -46,6 +46,7 @@
 		EC46930B200F7A4400D6EFF6 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC46930A200F7A4400D6EFF6 /* APIService.swift */; };
 		EC46930D200F7E6D00D6EFF6 /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC46930C200F7E6D00D6EFF6 /* Auth.swift */; };
 		EC84059820208A5500DBA3F3 /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC84059720208A5500DBA3F3 /* Configurations.swift */; };
+		EC9AC6122057F18F00E05094 /* StackOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9AC6112057F18F00E05094 /* StackOverview.swift */; };
 		EC9B92A720245D4A0048EB60 /* ProjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9B92A620245D4A0048EB60 /* ProjectsController.swift */; };
 		EC9B92A920245D970048EB60 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9B92A820245D970048EB60 /* Project.swift */; };
 		EC9B92AB20245EF50048EB60 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9B92AA20245EF50048EB60 /* ProjectCell.swift */; };
@@ -113,6 +114,7 @@
 		EC46930A200F7A4400D6EFF6 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		EC46930C200F7E6D00D6EFF6 /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		EC84059720208A5500DBA3F3 /* Configurations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
+		EC9AC6112057F18F00E05094 /* StackOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackOverview.swift; sourceTree = "<group>"; };
 		EC9B92A620245D4A0048EB60 /* ProjectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsController.swift; sourceTree = "<group>"; };
 		EC9B92A820245D970048EB60 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		EC9B92AA20245EF50048EB60 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				ECC0DC5D202B0DBB0036BD9F /* FeedCell.swift */,
 				EC9B92AC202461260048EB60 /* HeaderCell.swift */,
 				ECC0DC64202B107B0036BD9F /* OverviewCell.swift */,
+				EC9AC6112057F18F00E05094 /* StackOverview.swift */,
 				EC9B92AA20245EF50048EB60 /* ProjectCell.swift */,
 				ECA53D8620237E8F0075B5A4 /* AchievementCell.swift */,
 				EC9B92B02024761E0048EB60 /* PartnershipCell.swift */,
@@ -487,6 +490,7 @@
 				EC4692FD200F474300D6EFF6 /* ProfileController.swift in Sources */,
 				EC9B92B32024768E0048EB60 /* Partnership.swift in Sources */,
 				ECF4F299202C564D0032C59A /* ProgressBar.swift in Sources */,
+				EC9AC6122057F18F00E05094 /* StackOverview.swift in Sources */,
 				ECF4F291202B55070032C59A /* UserService.swift in Sources */,
 				EC9B92AD202461260048EB60 /* HeaderCell.swift in Sources */,
 				ECA53D8520237C4E0075B5A4 /* AchievementsController.swift in Sources */,

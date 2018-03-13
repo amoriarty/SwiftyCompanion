@@ -14,26 +14,25 @@ class OverviewCell: GenericCollectionViewCell<User> {
         didSet {
             guard let item = item else { return }
             guard let cursus = UserService.shared.getCursusUser() else { return }
-            let level = round(cursus.level)
-            let percent = cursus.level - level
+            let level = Int(cursus.level)
+            let percent = round((cursus.level - Double(level)) * 100)
             
             profileImage.image = nil
-            levelProgress.ratio = CGFloat(percent)
+            levelProgress.ratio = CGFloat(percent / 100)
             nameLabel.text = item.displayName
-            levelLabel.text = "level \(Int(level)) - \(Int(percent * 100))%"
-            phoneLabel.text = item.phone
+            levelLabel.text = "level \(Int(level)) - \(Int(percent))%"
+            phoneLabel.text = item.phone ?? "Cellphone unavailable"
             mailLabel.text = item.email
-            if let location = item.location {
-                locationLabel.text = location
-            } else {
-                locationLabel.text = "Unavailable"
-            }
-
+            locationLabel.text = item.location ?? "Unavailable"
+            stackOverview.user = item
             ImageService.shared.getImage(at: item.imageUrl) { _, image in
                 self.profileImage.image = image
             }
         }
     }
+    
+    // MARK:- Views
+    private let stackOverview = StackOverview()
     
     private let profileImage: UIImageView = {
         let view = UIImageView()
@@ -95,12 +94,14 @@ class OverviewCell: GenericCollectionViewCell<User> {
         return label
     }()
     
+    // MARK:- Setups
     override func setupViews() {
         super.setupViews()
         addSubview(profileImage)
         addSubview(stackInfo)
         addSubview(levelProgress)
         addSubview(levelLabel)
+        addSubview(stackOverview)
         stackInfo.addArrangedSubview(nameLabel)
         stackInfo.addArrangedSubview(phoneLabel)
         stackInfo.addArrangedSubview(mailLabel)
@@ -123,5 +124,9 @@ class OverviewCell: GenericCollectionViewCell<User> {
         _ = stackInfo.constraint(.trailing, to: self, constant: 10)
         _ = stackInfo.constraint(.leading, to: profileImage, .trailing, constant: 10)
         _ = stackInfo.constraint(.bottom, to: levelProgress, .top, constant: 5)
+        
+        _ = stackOverview.fill(.horizontaly, self)
+        _ = stackOverview.constraint(.top, to: levelProgress, .bottom, constant: 10)
+        _ = stackOverview.constraint(.bottom, to: self)
     }
 }
