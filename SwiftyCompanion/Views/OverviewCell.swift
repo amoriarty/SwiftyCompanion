@@ -10,6 +10,7 @@ import UIKit
 import ToolboxLGNT
 
 class OverviewCell: GenericCollectionViewCell<User> {
+    private let stackOverview = StackOverview()
     override var item: User? {
         didSet {
             guard let item = item else { return }
@@ -32,8 +33,6 @@ class OverviewCell: GenericCollectionViewCell<User> {
     }
     
     // MARK:- Views
-    private let stackOverview = StackOverview()
-    
     private let profileImage: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill

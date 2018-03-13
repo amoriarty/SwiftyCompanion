@@ -15,6 +15,7 @@ class SearchController: GenericViewController, InputStackDelegate {
     private let profileController = ProfileController()
     private var lock = false
     
+    // MARK:- Views
     private let background: UIImageView = {
         let image = UIImage(named: "LoginBackground")
         let view = UIImageView(image: image)
@@ -29,6 +30,7 @@ class SearchController: GenericViewController, InputStackDelegate {
         return view
     }()
     
+    // MARK:- View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         searchView.delegate = self
@@ -41,6 +43,7 @@ class SearchController: GenericViewController, InputStackDelegate {
         searchView.gradientBar.resize()
     }
     
+    // MARK:- Setups
     override func setupViews() {
         view.addSubview(background)
         view.addSubview(logo)
@@ -68,7 +71,17 @@ class SearchController: GenericViewController, InputStackDelegate {
         APIService.shared.getUser(login) { user in
             self.lock = false
             
-            guard let user = user else { return }
+            guard let user = user else {
+                let alert = UIAlertController(title: "User not found", message: "Sorry, but I wasn't able to find the user you're looking for.", preferredStyle: .alert)
+                let dismiss = UIAlertAction(title: "Dismiss", style: .cancel, handler: { _ in
+                    alert.dismiss(animated: true, completion: nil)
+                })
+                
+                alert.addAction(dismiss)
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            
             UserService.shared.user = user
             self.navigationController?.pushViewController(self.profileController, animated: true)
         }
