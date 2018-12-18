@@ -2,7 +2,7 @@
 //  Campus.swift
 //  SwiftyCompanion
 //
-//  Created by Émilie Legent on 17/01/2018.
+//  Created by Alex Legent on 17/01/2018.
 //  Copyright © 2018 Alexandre Legent. All rights reserved.
 //
 
@@ -19,7 +19,7 @@ struct CampusUser: Decodable {
     let campusId: Int
     let isPrimary: Bool
     
-    private enum CodingKeys: CodingKey, String {
+    private enum CodingKeys: String, CodingKey {
         case id
         case userId = "user_id"
         case campusId = "campus_id"

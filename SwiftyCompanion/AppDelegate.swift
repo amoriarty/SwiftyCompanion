@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  SwiftyCompanion
 //
-//  Created by Émilie Legent on 09/01/2018.
+//  Created by Alex Legent on 09/01/2018.
 //  Copyright © 2018 Alexandre Legent. All rights reserved.
 //
 
@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = UINavigationController(rootViewController: SearchController())

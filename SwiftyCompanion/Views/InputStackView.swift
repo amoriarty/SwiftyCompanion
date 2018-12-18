@@ -2,7 +2,7 @@
 //  InputStackView.swift
 //  SwiftyCompanion
 //
-//  Created by Émilie Legent on 16/01/2018.
+//  Created by Alex Legent on 16/01/2018.
 //  Copyright © 2018 Alexandre Legent. All rights reserved.
 //
 

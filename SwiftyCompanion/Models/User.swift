@@ -2,7 +2,7 @@
 //  User.swift
 //  SwiftyCompanion
 //
-//  Created by Émilie Legent on 17/01/2018.
+//  Created by Alex Legent on 17/01/2018.
 //  Copyright © 2018 Alexandre Legent. All rights reserved.
 //
 
@@ -27,7 +27,7 @@ struct User: Decodable {
     let projectsUser: [ProjectUser]
     let partnerships: [Partnership]
     
-    private enum CodingKeys: CodingKey, String {
+    private enum CodingKeys: String, CodingKey {
         case id, login, email, phone, location, wallet, titles, campus, achievements, partnerships
         case displayName = "displayname"
         case correctionPoint = "correction_point"

@@ -2,7 +2,7 @@
 //  Title.swift
 //  SwiftyCompanion
 //
-//  Created by Émilie Legent on 17/01/2018.
+//  Created by Alex Legent on 17/01/2018.
 //  Copyright © 2018 Alexandre Legent. All rights reserved.
 //
 
@@ -19,7 +19,7 @@ struct TitleUser: Decodable {
     let titleId: Int
     let selected: Bool
     
-    enum CodingKeys: CodingKey, String {
+    enum CodingKeys: String, CodingKey {
         case id, selected
         case userId = "user_id"
         case titleId = "title_id"

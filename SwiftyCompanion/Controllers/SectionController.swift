@@ -57,7 +57,7 @@ class SectionController: GenericCollectionViewController<SectionCell, String> {
         guard let frame = collectionView?.frame else { return .zero }
         guard let item = items?[indexPath.section][indexPath.item] else { return .zero }
         let size = CGSize(width: .infinity, height: frame.height)
-        let attributes: [NSAttributedStringKey: Any] = [.font: UIFont.futuraBold(ofSize: 12)]
+        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont.futuraBold(ofSize: 12)]
         let boundingRect = NSString(string: item).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         return CGSize(width: boundingRect.width + 10, height: frame.height)
     }

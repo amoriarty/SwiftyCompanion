@@ -2,7 +2,7 @@
 //  ProjectsController.swift
 //  SwiftyCompanion
 //
-//  Created by Émilie Legent on 02/02/2018.
+//  Created by Alex Legent on 02/02/2018.
 //  Copyright © 2018 Alexandre Legent. All rights reserved.
 //
 
@@ -30,7 +30,7 @@ class ProjectsController: GenericCollectionViewController<ProjectCell, ProjectUs
         super.setupCollectionView()
         guard let layout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         layout.sectionHeadersPinToVisibleBounds = true
-        collectionView?.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
+        collectionView?.register(HeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerId)
     }
     
     func userDidChange() {
@@ -42,7 +42,7 @@ class ProjectsController: GenericCollectionViewController<ProjectCell, ProjectUs
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        guard kind == UICollectionElementKindSectionHeader else { return UICollectionReusableView() }
+        guard kind == UICollectionView.elementKindSectionHeader else { return UICollectionReusableView() }
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! HeaderCell
         header.item = headers[indexPath.section]
         return header
